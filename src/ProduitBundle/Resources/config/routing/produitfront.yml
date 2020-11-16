@@ -1,0 +1,15 @@
+produit_showfront:
+    path:     /{idProduit}/showfront
+    defaults: { _controller: "ProduitBundle:Produit:showfront" }
+    methods:  GET
+
+produit_indexfront:
+    path:     /
+    defaults: { _controller: "ProduitBundle:Produit:indexfront" }
+    methods:  GET
+
+produit_indexfronte:
+    path:     /{idCategorie}
+    defaults: { _controller: "ProduitBundle:Produit:indexfronte" }
+    methods:  GET
+

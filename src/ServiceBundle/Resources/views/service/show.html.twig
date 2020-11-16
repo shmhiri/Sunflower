@@ -1,0 +1,79 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>Service</h1>
+<section class="content">
+    <ul>
+        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+            <tbody>
+
+            <tr>
+                <th>Nomservice</th>
+                <td>{{ service.nomService }}</td>
+            </tr>
+            <tr>
+                <th>Nomagent</th>
+                <td>{{ service.nomAgent }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ service.type }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ service.prix }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ service.description }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ service.etat }}</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>{{ service.contact }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ service.region }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    <img src="{{ asset('uploads/images/' ~ service.image)}}" alt="Image" width="200" height="200" />
+                </td>
+            </tr>
+
+
+            </tbody>
+        </table>
+        <table>
+        <a class="btn btn-primary btn-lg btn-block "
+           href="{{ path('service_edit', { 'idService': service.idService }) }}">
+            <i class="zmdi zmdi-hc-fw">
+                edit</i>
+        </a>
+
+
+        <a class="btn btn-success btn-lg btn-block"
+           href="{{ path('avisservice_index',{ 'idService': service.idService } ) }}">
+            <i class="zmdi zmdi-hc-fw"></i>
+        </a>
+            {{ form_start(delete_form) }}
+
+            <div class="btn btn-danger btn-block">
+                <button class="btn btn-danger zmdi zmdi-hc-fw" data-type="success" name="supprimer" type="submit">
+                    supp</button>
+            </div>
+            {{ form_end(delete_form) }}
+
+            <a class="btn btn-dark btn-lg btn-block "
+               href="{{ path('service_index') }}">
+                <i class="zmdi zmdi-hc-fw"></i>
+            </a>
+            </table>
+    </ul>
+    </section>
+{% endblock %}

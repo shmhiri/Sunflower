@@ -1,0 +1,47 @@
+{% extends 'basef.html.twig' %}
+
+
+
+{% block content %}
+    <br>  <br>
+    <br class="theme-blush">
+    <br>  <br>
+    <section class="content">
+        <div class="body_scroll">
+
+
+            <div class="container-fluid">
+                <div class="row clearfix">
+
+                    {% for produit in produit %}
+
+                        {% set imag = 'uploads/images/'~produit.image %}
+
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                            <div class="card">
+                                <div class="body product_item">
+                                    <span class="label onsale">Sale!</span>
+                                    <div> <img src="{{ asset(imag) }}  " alt="Product" width="250" height="100" class="img-fluid cp_img"></div>
+                                    <div class="product_details">
+                                        <a href="">{{ produit.nomProduit }}</a>
+
+                                        <ul class="product_price list-unstyled"><li class="old_price">{{produit.prix }}DT</li></ul>
+                                    </div>
+                                    <div class="action">
+                                        <a  class="btn btn-info waves-effect" >   Show  </a>
+                                        <a href="{{ path('commande_ajouter', { 'idProduit' : produit.idProduit }) }}" class="btn btn-primary waves-effect">Ajouter au Panier</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    </br>
+    </br>
+    </body>
+
+{% endblock %}
+

@@ -1,0 +1,424 @@
+
+{% extends 'baseback.html.twig' %}
+{% block content %}
+
+
+
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Evenement/Promotion</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-12">
+                        <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <!-- Basic Examples -->
+                <h5>Tout les evenements/Mes evenements</h5>
+                {{ "now" | date(timezone="Europe/Paris") }}
+
+                <div class="row clearfix">
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon traffic">
+                            <div class="body">
+                                <h6>nombre total</h6>
+                                <h2> {{ nbrtotal }} <small class="info">evenements</small></h2>
+                                <small>progress bar evenements </small>
+                                <div class="progress">
+
+                                    <div class="progress-bar l-amber" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrtotal }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon sales">
+                            <div class="body">
+                                <h6>nombre type </h6>
+                                <h2>{{ nbrtotalani }} <small class="info">animation of {{ nbrtotal }}</small></h2>
+                                <h2>{{ nbrtotalcom }} <small class="info">competition of {{ nbrtotal }}</small></h2>
+                                <h2>{{ nbrtotalvis }} <small class="info">visite  of {{ nbrtotal }}</small></h2>
+                                <small>
+
+
+                                    {% set ma= max( nbrtotalani, nbrtotalcom ,  nbrtotalvis)  %}
+                                    {% if ma==  nbrtotalani %}{% set maxx="animation" %}{% endif %}
+                                    {% if ma==  nbrtotalcom %}{% set maxx="competition" %}{% endif %}
+                                    {% if ma==  nbrtotalvis %}{% set maxx="visite" %}{% endif %}
+                                {% if (nbrtotal!=0) %}
+                                    {% set m=(ma*100)/nbrtotal %}
+{% else %}
+                                    {% set m=0 %}
+{% endif %}
+
+                                    {{ m|round   }}  % {{ maxx   }}
+                                    higher than others </small>
+                                <div class="progress">
+
+
+
+                                    <div class="progress-bar l-blue" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width:{{ m }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon domains">
+                            <div class="body">
+                                <h6>Eve en cours</h6>
+                                <h2>{{  nbrtotaldc}} <small class="info">of {{  nbrtotal}}</small></h2>
+
+                                {% if (nbrtotal!=0) %}
+                                {% set d=(nbrtotaldc*100)/nbrtotal %}
+                                {% else %}
+                                {% set d=0 %}
+                                {% endif %}
+
+
+
+
+                                <small> {{ d|round }} % evenements en cours</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" style="width: {{ d|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon email">
+                            <div class="body">
+                                <h6>Eve Expirer</h6>
+                                <h2>{{ nbrtotalde }} <small class="info">of {{ nbrtotal }}</small></h2>
+
+                               {% if (nbrtotal!=0) %}
+                                {% set de=(nbrtotalde*100)/nbrtotal %}
+                                {% else %}
+                                {% set de=0 %}
+                                {% endif %}
+
+
+                                <small> {{ de|round }} % evenements expirer</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: {{ de|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon traffic">
+                            <div class="body">
+                                <h6>nombre total</h6>
+                                <h2> {{ nbrtotaluser }} <small class="info">evenements</small></h2>
+                                <small>progress bar evenements </small>
+                                <div class="progress">
+
+                                    <div class="progress-bar l-amber" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrtotaluser }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon sales">
+                            <div class="body">
+                                <h6>nombre type </h6>
+                                <h2>{{ nbrtotalaniuser }} <small class="info">animation of {{ nbrtotaluser }}</small></h2>
+                                <h2>{{ nbrtotalcomuser }} <small class="info">competition of {{ nbrtotaluser }}</small></h2>
+                                <h2>{{ nbrtotalvisuser }} <small class="info">visite  of {{ nbrtotaluser }}</small></h2>
+                                <small>
+
+
+                                    {% set mauser= max( nbrtotalaniuser, nbrtotalcomuser ,  nbrtotalvisuser)  %}
+                                    {% if mauser==  nbrtotalaniuser %}{% set maxxuser="animation" %}{% endif %}
+                                    {% if mauser==  nbrtotalcomuser %}{% set maxxuser="competition" %}{% endif %}
+                                    {% if mauser==  nbrtotalvisuser %}{% set maxxuser="visite" %}{% endif %}
+
+                                    {% if (nbrtotaluser!=0) %}
+
+                                    {% set muser=(mauser*100)/nbrtotaluser %}
+                                    {% else %}
+                                    {% set muser=0 %}
+{% endif %}
+
+
+                                    {{ muser|round   }}  % {{ maxxuser   }}
+                                    higher than others </small>
+                                <div class="progress">
+
+
+
+                                    <div class="progress-bar l-blue" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width:{{ muser }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon domains">
+                            <div class="body">
+                                <h6>Eve en cours</h6>
+                                <h2>{{  nbrtotaldcuser}} <small class="info">of {{  nbrtotaluser}}</small></h2>
+
+                                {% if(nbrtotaluser!=0) %}
+                                {% set duser=(nbrtotaldcuser*100)/nbrtotaluser %}
+                                {% else %}
+                                {% set duser=0 %}
+                                {% endif %}
+
+
+                                <small> {{ duser|round }} % evenements en cours</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" style="width: {{ duser|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon email">
+                            <div class="body">
+                                <h6>Eve Expirer</h6>
+                                <h2>{{ nbrtotaldeuser }} <small class="info">of {{ nbrtotaluser }}</small></h2>
+
+                               {% if(nbrtotaluser!=0) %}
+                                {% set deuser=(nbrtotaldeuser*100)/nbrtotaluser %}
+                               {% else %}
+                                {% set deuser=0 %}
+                                {% endif %}
+
+                                <small> {{ deuser|round }} % evenements expirer</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: {{ deuser|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon traffic">
+                            <div class="body">
+                                <h6>nombre total</h6>
+                                <h2> {{ nbrtotalpro }} <small class="info">promotions</small></h2>
+                                <small>progress bar promotions </small>
+                                <div class="progress">
+
+                                    <div class="progress-bar l-amber" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrtotalpro }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon domains">
+                            <div class="body">
+                                <h6>Promo en cours</h6>
+                                <h2>{{  nbrtotaldcpro}} <small class="info">of {{  nbrtotalpro}}</small></h2>
+
+                                {% if(nbrtotalpro!=0) %}
+                                {% set dpro=(nbrtotaldcpro*100)/nbrtotalpro %}
+                                {% else %}
+                                {% set dpro=0 %}
+                                {% endif %}
+
+                                <small> {{ dpro|round }} % promotions en cours</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" style="width: {{ dpro|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon email">
+                            <div class="body">
+                                <h6>Promo Expirer</h6>
+                                <h2>{{ nbrtotaldepro }} <small class="info">of {{ nbrtotalpro }}</small></h2>
+
+                                {% if(nbrtotalpro!=0) %}
+                                {% set depro=(nbrtotaldepro*100)/nbrtotalpro %}
+                                {% else %}
+                                {% set depro=0 %}
+                                {% endif %}
+
+                                <small> {{ depro|round }} % promotions expirer</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: {{ depro|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <h5> Tout les Promotions</h5>
+
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon traffic">
+                            <div class="body">
+                                <h6>nombre total</h6>
+                                <h2> {{ nbrtotaluserpro }} <small class="info">promotions</small></h2>
+                                <small>progress bar promotions </small>
+                                <div class="progress">
+
+                                    <div class="progress-bar l-amber" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrtotaluserpro }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon domains">
+                            <div class="body">
+                                <h6>promo en cours</h6>
+                                <h2>{{  nbrtotaldcuserpro}} <small class="info">of {{  nbrtotaluserpro}}</small></h2>
+
+                               {% if(nbrtotaluserpro!=0) %}
+                                {% set duserpro=(nbrtotaldcuserpro*100)/nbrtotaluserpro %}
+                                {% else %}
+                                {% set duserpro=0 %}
+                                {% endif %}
+
+                                <small> {{ duserpro|round }} % promotions en cours</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" style="width: {{ duserpro|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card widget_2 big_icon email">
+                            <div class="body">
+                                <h6>promo Expirer</h6>
+                                <h2>{{ nbrtotaldeuserpro }} <small class="info">of {{ nbrtotaluserpro }}</small></h2>
+
+                               {% if(nbrtotaluserpro) %}
+                                {% set deuserpro=(nbrtotaldeuserpro*100)/nbrtotaluserpro %}
+                               {% else %}
+                                {% set deuserpro=0 %}
+                                {% endif %}
+
+                                <small> {{ deuserpro|round }} % promotions expirer</small>
+                                <div class="progress">
+                                    <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: {{ deuserpro|round }}%;"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <h5> Mes Promotions</h5>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Exportable Table -->
+
+        </div>
+
+        </div>
+    </section>
+
+
+
+
+{% endblock %}
+
+

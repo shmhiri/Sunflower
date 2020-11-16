@@ -1,0 +1,46 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>Modifier Produit</h1>
+    {{form_start(edit_form)}}
+        <form name="produitbundle_produit" method="post">
+            <div class="form-group"><input type="text" id="nomProduit" required="required"  name="nomProduit" maxlength="255" value="{{ thisproduit.nomProduit }}" class="form-control" placeholder="Nom Produit..." ></div>
+            <div class="form-group"><select id="idCategorie" name="idCategorie"  class="form-control"><option value="1">Arbres et Arbustes</option><option value="2">Plantes de decoration</option><option value="3">Plantes fruitiers</option><option value="4">Equipements de decoration</option><option value="5">Equipements darrosage</option><option value="6">Outils de jardinage</option><option value="9">Engrais organiques</option><option value="10">Engrais mineraux</option></select></div>
+            <div class="form-group"><input type="number" id="quantite" name="quantite" required="required"  class="form-control" value="{{ thisproduit.quantite }}" placeholder="Quantité..."></div>
+            <div class="form-group"><input type="number" id="prix" name="prix" required="required"  class="form-control" value="{{ thisproduit.prix }}" placeholder="Prix..." ></div>
+            <div class="form-group"><label>Image</label>{{ form_widget(edit_form.image,{'attr':{}}) }}</div>
+            <div class="form-group"><textarea id="description" name="description" required="required"  class="form-control" placeholder="Description...">{{ thisproduit.description }}</textarea></div>
+
+
+            <ul class="row">
+                <div><button class="btn btn-app btn-primary fa fa-edit btn-lg"  href="{{ path('produit_index') }} " id="modifier" name="modifier" type="submit">Modifier</button></div>
+                <div><a class="btn btn-primary fa fa-backward btn-lg" href="{{ path('produit_index') }} "><i class="fa fa-repeat"></i> Retour</a></div>
+                </ul>
+        </form>
+    {{ form_end(edit_form) }}
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/search.js" type="text/javascript"></script>
+    <script>
+        $("#nomProduit").keyup(function(){
+            if($(this).val().length <1){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("modifier").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("modifier").disabled = false;}});
+    </script>
+    <script>
+        $("#quantite").keyup(function(){
+            if($(this).val() <0){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("modifier").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("modifier").disabled = false;}});
+    </script>
+    <script>
+        $("#prix").keyup(function(){
+            if($(this).val()<1){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("modifier").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("modifier").disabled = false;}});
+    </script>
+    <script>
+        $("#description").keyup(function(){
+            if($(this).val().length <1){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("modifier").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("modifier").disabled = false;}});
+    </script>
+{% endblock %}

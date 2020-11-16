@@ -1,0 +1,23 @@
+<div>
+   <h4   style="color: #1c7430 ;font-weight: bold">nouveaux événements</h4>
+
+    <ul id="notifications"></ul>
+    {% for notif in notifications %}
+    <li>
+
+        {{ notif.description }}<br>
+        {% else %}
+    <li>list is empty </li>
+
+{% endfor %}
+
+
+    </li>
+
+
+
+
+
+
+
+</div>

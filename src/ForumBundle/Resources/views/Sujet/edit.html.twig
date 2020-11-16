@@ -1,0 +1,52 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>Modifier sujet </h1>
+
+    {{ form_start(edit_form) }}
+
+    <div class="form-group">
+        <label>Nom Sujet</label>
+        {{ form_widget(edit_form.nomSujet,{'attr':{'class':'form-control','placeholder':'nom sujet...'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>Type</label>
+        {{ form_widget(edit_form.type,{'attr':{'class':'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>Categorie Sujet</label>
+        {{ form_widget(edit_form.idCategorieSujet,{'attr':{'class':'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        {{ form_widget(edit_form.description,{'attr':{'class':'form-control','placeholder':'description...'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>Image</label>
+        {{ form_widget(edit_form.image,{'attr':{}}) }}
+    </div>
+
+    <div class="row clearfix js-sweetalert">
+        <button  href="{{ path('sujet_index') }}" class="btn btn-raised btn-primary waves-effect" data-type="success" name="modifier" type="submit">Modifier</button>
+    </div>
+
+    {{ form_end(edit_form) }}
+
+
+    <div class="align-left">
+        <a class="btn btn-app" href="{{ path('sujet_index') }}">
+            <i class="fa fa-repeat"></i> Retour vers la listes des Sujets
+        </a>
+    </div>
+
+            {{ form_start(delete_form) }}
+    <div class="jsdemo-notification-button">
+        <button type="submit" class="btn btn-raised m-b-10 bg-red waves-effect" data-placement-from="bottom" data-placement-align="left" data-animate-enter="" data-animate-exit="" data-color-name="bg-red"> Supprimer </button>
+    </div>
+    {{ form_end(delete_form) }}
+
+{% endblock %}

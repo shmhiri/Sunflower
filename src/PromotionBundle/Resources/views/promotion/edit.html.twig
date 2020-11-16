@@ -1,0 +1,188 @@
+
+{% extends 'baseback.html.twig' %}
+{% block content %}
+
+
+    <section class="content">
+
+
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Basic</strong> Examples </h2>
+                            <ul class="header-dropdown">
+                                <li class="dropdown"> <a href="{{ asset('javascript:void(0);') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Action</a></li>
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Another action</a></li>
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Something else</a></li>
+                                    </ul>
+                                </li>
+                                <li class="remove">
+                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+
+                            <center>  <h1 style="color:blue;">Promotion edit</h1></center>
+
+
+                            <div  style="display: flex;justify-content: center">
+
+                                {{ form_start(edit_form) }}
+
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.nomPromotion, { 'attr': {'class': 'form-control','placeholder':'nomPromotion'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-label-heart"></i></span>
+                                </div>
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.nomAgent, { 'attr': {'class': 'form-control','placeholder':'nomAgent'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-account"></i></span>
+                                </div>
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.nomProduit, { 'attr': {'class': 'form-control','placeholder':'nomProduit'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-star"></i></span>
+                                </div>
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.prixHab, { 'attr': {'class': 'form-control','placeholder':'prixHab'} }) }}
+
+                                    <span class="input-group-text"><i class="zmdi zmdi-home"></i></span>
+                                </div>
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.pourcentage, { 'attr': {'class': 'form-control','placeholder':'pourcentage'} }) }}
+
+                                    <span class="input-group-text"><i class="zmdi zmdi-home"></i></span>
+                                </div>
+                                <h7>Date Début</h7>
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.dateDebut, { 'attr': {'class': 'form-control','placeholder':'dateDebut'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-account-calendar"></i></span>
+                                </div>
+                                <h7>Date Fin</h7>
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.dateFin, { 'attr': {'class': 'form-control','placeholder':'dateFin'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-account-calendar"></i></span>
+                                </div>
+
+
+
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.description, { 'attr': {'class': 'form-control','placeholder':'description'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-comment-text"></i></span>
+                                </div>
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.idProduit, { 'attr': {'class': 'form-control'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-comment-text"></i></span>
+                                </div>
+
+
+                                <input type="submit" class="btn btn-primary btn-block waves-effect waves-light" value="Edit" />
+                                {{ form_end(edit_form) }}
+
+                            </div>
+
+                            <ul>
+
+
+                                {{ form_start(delete_form) }}
+                                <input type="submit" class="btn btn-primary btn-block waves-effect waves-light" value="Delete" />
+                                {{ form_end(delete_form) }}
+                                <li> <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                            <thead>
+                                            <tr>
+                                                <th>id</th>
+                                                <th>nomProduit</th>
+                                                <th>nomCategorie</th>
+                                                <th>type</th>
+                                                <th>prix</th>
+                                                <th>quantite</th>
+                                                <th>description</th>
+
+
+                                            </tr>
+                                            </thead>
+                                            <tfoot>
+                                            <tr>
+
+                                                <th>id</th>
+                                                <th>nomProduit</th>
+                                                <th>nomCategorie</th>
+                                                <th>type</th>
+                                                <th>prix</th>
+                                                <th>quantite</th>
+                                                <th>description</th>
+
+
+                                            </tr>
+                                            </tfoot>
+
+
+
+
+                                            <tbody>
+                                            {% for promotion in nbrC %}
+
+                                                <tr>
+
+                                                    <td>{{ promotion.idProduit }}</td>
+
+                                                    <td>{{ promotion.nomProduit }}</td>
+                                                    <td>{{ promotion.nomCategorie }}</td>
+                                                    <td>{{ promotion.type }}</td>
+                                                    <td>{{ promotion.prix }}</td>
+                                                    <td>{{ promotion.quantite }}</td>
+                                                    <td>{{ promotion.description }}</td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+
+
+
+
+
+                                        </table>
+                                    </div>
+                                    <a href="{{ path('promotion_index') }}">Back to the list</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exportable Table -->
+
+        </div>
+
+        </div>
+    </section>
+
+
+
+{% endblock %}
+
+

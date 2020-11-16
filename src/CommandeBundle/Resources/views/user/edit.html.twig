@@ -1,0 +1,432 @@
+{% extends 'baseback.html.twig' %}
+{% block right %}
+{% endblock %}
+
+{% block left %}
+{% endblock %}
+
+{% block head %}
+    <head>
+        <!-- Basic and Helper page needs -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="#78a206">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+        <link rel="canonical" href="{{ path('forum_frontpage') }}"><!-- Title and description -->
+
+        <title>{% block title %}SunFlower{% endblock %}</title><!-- Helpers -->
+        <!-- /snippets/social-meta-tags.liquid -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Naturecircle">
+        <meta property="og:description" content="">
+
+        <meta property="og:url" content="{{ path('forum_frontpage') }}">
+        <meta property="og:site_name" content="Naturecircle">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Naturecircle">
+        <meta name="twitter:description" content="">
+
+        <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
+        <!-- Custom Css -->
+        <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
+
+
+
+        <!-- CSS -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/timber.scssd645.css?40') }} " rel="stylesheet" type="text/css" media="all" />
+        <!-- Link all your CSS files below -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/bootstrap.mind645.css?40')}}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/font-awesome.mind645.css?40') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/ie7d645.css?40') }}" rel="stylesheet" type="text/css" media="all" />
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/pluginsd645.css?40') }}" rel="stylesheet" type="text/css" media="all" />
+
+        <!-- Link your style.css and responsive.css files below -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/styled645.css?40')}}" rel="stylesheet" type="text/css" media="all" />
+
+        <!-- Theme Default CSS -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/theme-defaultd645.css?40')}}" rel="stylesheet" type="text/css" media="all" />
+        <!-- Make your theme CSS calls here -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/theme-customd645.css?40') }}" rel="stylesheet" type="text/css" media="all" />
+
+
+        <!-- Make your theme RTL CSS calls here -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/theme-responsived645.css?40') }}" rel="stylesheet" type="text/css" media="all" />
+
+        <!-- Make all your dynamic CSS calls here -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/skin-themed645.css?40') }}" rel="stylesheet" type="text/css" media="all" />
+        <!-- Call your theme color CSS here -->
+        <link href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/theme-colord645.css?40')}}" rel="stylesheet" type="text/css" media="all" />
+
+        <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/16239329344/digital_wallets/dialog">
+        <script id="shopify-features" type="application/json">{"accessToken":"7752b1b5b798084cd72e4db58b99fefb","betas":[],"domain":"naturecircle.myshopify.com","shopId":16239329344,"smart_payment_buttons_url":"https://cdn.shopifycloud.com/payment-sheet/assets/latest/spb.js"}</script>
+        <script>var Shopify = Shopify || {};
+            Shopify.shop = "naturecircle.myshopify.com";
+            Shopify.currency = {"active":"USD","rate":"1.0"};
+            Shopify.theme = {"name":"naturecircle","id":55309598784,"theme_store_id":null,"role":"main"};
+            Shopify.theme.handle = "null";
+            Shopify.theme.style = {"id":null,"handle":null};</script>
+        <script>(function() {
+                function asyncLoad() {
+                    var urls = ["//productreviews.shopifycdn.com/assets/v4/spr.js?shop=naturecircle.myshopify.com"];
+                    for (var i = 0; i < urls.length; i++) {
+                        var s = document.createElement('script');
+                        s.type = 'text/javascript';
+                        s.async = true;
+                        s.src = urls[i];
+                        var x = document.getElementsByTagName('script')[0];
+                        x.parentNode.insertBefore(s, x);
+                    }
+                };
+                if(window.attachEvent) {
+                    window.attachEvent('onload', asyncLoad);
+                } else {
+                    window.addEventListener('load', asyncLoad, false);
+                }
+            })();</script>
+        <script id="__st">var __st={"a":16239329344,"offset":-43200,"reqid":"30fda375-19d3-4de4-88d8-6c8f4326f237","pageurl":"naturecircle.myshopify.com/","u":"29173d208ed3","p":"home"};</script>
+        <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
+        <script>window.Shopify = window.Shopify || {};
+            window.Shopify.Checkout = window.Shopify.Checkout || {};
+            window.Shopify.Checkout.apiHost = "naturecircle.myshopify.com";</script>
+        <script>window.ShopifyAnalytics = window.ShopifyAnalytics || {};
+            window.ShopifyAnalytics.meta = window.ShopifyAnalytics.meta || {};
+            window.ShopifyAnalytics.meta.currency = 'USD';
+            var meta = {"page":{"pageType":"home"}};
+            for (var attr in meta) {
+                window.ShopifyAnalytics.meta[attr] = meta[attr];
+            }</script>
+        <script>window.ShopifyAnalytics.merchantGoogleAnalytics = function() {
+
+            };
+        </script>
+        <script class="analytics">(function () {
+                var customDocumentWrite = function(content) {
+                    var jquery = null;
+
+                    if (window.jQuery) {
+                        jquery = window.jQuery;
+                    } else if (window.Checkout && window.Checkout.$) {
+                        jquery = window.Checkout.$;
+                    }
+
+                    if (jquery) {
+                        jquery('body').append(content);
+                    }
+                };
+
+                var isDuplicatedThankYouPageView = function() {
+                    return document.cookie.indexOf('loggedConversion=' + window.location.pathname) !== -1;
+                }
+
+                var setCookieIfThankYouPage = function() {
+                    if (window.location.pathname.indexOf('/checkouts') !== -1 &&
+                        window.location.pathname.indexOf('/thank_you') !== -1) {
+
+                        var twoMonthsFromNow = new Date(Date.now())
+                        twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
+
+                        document.cookie = 'loggedConversion=' + window.location.pathname + '; expires=' + twoMonthsFromNow;
+                    }
+                }
+
+                var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
+                if (trekkie.integrations) {
+                    return;
+                }
+                trekkie.methods = [
+                    'identify',
+                    'page',
+                    'ready',
+                    'track',
+                    'trackForm',
+                    'trackLink'
+                ];
+                trekkie.factory = function(method) {
+                    return function() {
+                        var args = Array.prototype.slice.call(arguments);
+                        args.unshift(method);
+                        trekkie.push(args);
+                        return trekkie;
+                    };
+                };
+                for (var i = 0; i < trekkie.methods.length; i++) {
+                    var key = trekkie.methods[i];
+                    trekkie[key] = trekkie.factory(key);
+                }
+                trekkie.load = function(config) {
+                    trekkie.config = config;
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.onerror = function(e) {
+                        (new Image()).src = 'http://v.shopify.com/internal_errors/track?error=trekkie_load';
+                    };
+                    script.async = true;
+                    script.src = 'assetsfront/cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min97e4.js?v=2017.09.05.1';
+                    var first = document.getElementsByTagName('script')[0];
+                    first.parentNode.insertBefore(script, first);
+                };
+                trekkie.load(
+                    {"Trekkie":{"appName":"storefront","development":false,"defaultAttributes":{"shopId":16239329344,"isMerchantRequest":null,"themeId":55309598784,"themeCityHash":8757772860437056711}},"Performance":{"navigationTimingApiMeasurementsEnabled":true,"navigationTimingApiMeasurementsSampleRate":1.0},"Session Attribution":{}}
+                );
+
+                var loaded = false;
+                trekkie.ready(function() {
+                    if (loaded) return;
+                    loaded = true;
+
+                    window.ShopifyAnalytics.lib = window.trekkie;
+
+
+                    var originalDocumentWrite = document.write;
+                    document.write = customDocumentWrite;
+                    try { window.ShopifyAnalytics.merchantGoogleAnalytics.call(this); } catch(error) {};
+                    document.write = originalDocumentWrite;
+
+                    if (!isDuplicatedThankYouPageView()) {
+                        setCookieIfThankYouPage();
+
+                        window.ShopifyAnalytics.lib.page(
+                            null,
+                            {"pageType":"home"}
+                        );
+
+
+                    }
+                });
+
+                var eventsListenerScript = document.createElement('script');
+                eventsListenerScript.async = true;
+                eventsListenerScript.src = "{{ asset('assetsfront/cdn.shopify.com/s/assets/shop_events_listener-acf771159f9849ef6e5265782c99efe8b99406214c96a4373224ecafe285d7bb.js') }}";
+                document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
+
+            })();</script>
+        <script integrity="sha256-cDvzHc7qqyE6XUzjp2M6Hvi6U27BLsvkmtBh9SERMrY=" defer="defer" src="{{ asset('assetsfront/cdn.shopify.com/s/assets/storefront/express_buttons-703bf31dceeaab213a5d4ce3a7633a1ef8ba536ec12ecbe49ad061f5211132b6.js') }}" crossorigin="anonymous"></script>
+        <script integrity="sha256-6HOSr+Kf4wcoL05qrRLLS8wq/v1rf+vwtw7f0xX5aEw=" defer="defer" src="{{ asset('assetsfront/cdn.shopify.com/s/assets/storefront/features-e87392afe29fe307282f4e6aad12cb4bcc2afefd6b7febf0b70edfd315f9684c.js') }}" crossorigin="anonymous"></script>
+        <link rel="stylesheet" media="screen" href="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/compiled_assets/stylesd645.css?40') }}">
+        <script id="sections-script" data-sections="food-category,product-carousle-with-tab,product-banner,random-products,testimonials,latest-blog,header" defer="defer" src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/compiled_assets/scriptsd645.js?40') }}"></script>
+
+        <!-- /snippets/oldIE-js.liquid -->
+
+
+        <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+        <script src="//cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/respond.min.js?40" type="text/javascript"></script>
+        <link href="//cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+        <link href="//naturecircle.myshopify.com/search?q=a4fd16202dae3d9f2a7cb7fd8d3938f3" id="respond-redirect" rel="respond-redirect" />
+        <script src="//naturecircle.myshopify.com/search?q=a4fd16202dae3d9f2a7cb7fd8d3938f3" type="text/javascript"></script>
+        <![endif]-->
+
+
+        <!-- JS --><!-- Your update file include here -->
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/modernizr-3.5.0.mind645.js?40') }}"></script>
+        <script src="{{ asset('assetsfront/ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js') }}"></script>
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/popper.mind645.js?40') }}"></script>
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/bootstrap.mind645.js?40') }}"></script>
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/pluginsd645.js?40') }}"></script>
+
+
+
+        <!-- Countdown Js -->
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/jquery.countdown.mind645.js?40') }}"></script>
+
+        <!-- Ajax Cart js -->
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/assets/themes_support/option_selection-fe6b72c2bbdd3369ac0bfefe8648e3c889efca213baefd4cfb0dd9363563831f.js') }}"></script>
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/assets/themes_support/api.jquery-e94e010e92e659b566dbc436fdfe5242764380e00398907a14955ba301a4749f.js') }}"></script>
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/cart.apid645.js?40') }}"></script>
+
+        <!-- Your main.js file upload this file -->
+        <script src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/t/2/assets/themed645.js?40') }}"></script>
+
+
+    </head>
+    <header class="header-area header-sticky">
+        <div class="header-container">
+            <div class="row">
+                <div class="col-lg-5 display-none-md display-none-xs">
+                    <div class="ht-main-menu">
+                        <nav>
+                            <ul>
+
+                                <li class="active"><a href="index.html">Home <i class="fa fa-angle-down"></i></a>
+                                    <ul class="">
+
+                                        <li class=" submenu-li"><a href="indexe804.html?preview_theme_id=55309598784">Home One</a></li>
+
+                                    </ul>
+                                </li>
+
+
+                                <li ><a href="#">vegetables <i class="fa fa-angle-down"></i></a>
+                                    <ul class="">
+                                        <li class="mega-menu-title "><a href="#">Bags</a>
+                                            <ul>
+
+                                                <li><a href="collections.html">Crochet</a></li>
+
+                                                <li><a href="collections.html">Sleeveles</a></li>
+
+
+                                                <li><a href="collections.html">Stripes</a></li>
+
+                                                <li><a href="collections.html">Sweaters</a></li>
+
+                                                <li><a href="collections/bags.html"><img src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/collections/menu-1_grandec517.jpg?v=1547541527') }}" alt="" /></a></li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li class="mega-menu-title "><a href="#">Bottoms</a>
+                                            <ul>
+
+                                                <li><a href="collections/bottoms.html"><img src="../cdn.shopify.com/s/files/1/0162/3932/9344/collections/menu-2_grande9dd2.jpg?v=1547541568" alt="" /></a></li>
+
+
+
+                                            </ul>
+                                        </li>
+
+                                        <li class="mega-menu-title "><a href="#">Shirts</a>
+                                            <ul>
+
+                                                <li><a href="collections.html">Flat sandals</a></li>
+
+
+                                                <li><a href="collections.html">Heeled sandals</a></li>
+
+
+                                                <li><a href="collections.html">Polo Short Sleeve</a></li>
+
+
+                                                <li><a href="collections.html">Short Sleeve</a></li>
+
+
+                                                <li><a href="collections/shirts.html"><img src="{{ asset('assetsfront/cdn.shopify.com/s/files/1/0162/3932/9344/collections/menu-3_grandecd9c.jpg?v=1547541613') }}" alt="" /></a></li>
+
+
+
+                                            </ul>
+                                        </li>
+
+
+
+                                    </ul>
+                                </li>
+
+
+
+
+
+                                <li ><a href="collections/all.html">Shop</a></li>
+
+
+
+
+
+                                <li ><a href="#">Product <i class="fa fa-angle-down"></i></a>
+
+                                </li>
+
+
+
+
+
+                                <li ><a href="blogs/news.html">Blog</a></li>
+
+
+
+
+
+                                <li ><a href="pages/contact.html">Contact</a></li>
+
+
+                            </ul>
+                        </nav>
+
+                        <script>
+                            $('.mega-menu-title').parent('ul').addClass('ht-mega-menu');
+                            $('.submenu-li').parent('ul').addClass('sub-menu');
+                        </script>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-4">
+                    <div class="logo text-center">
+                        <a href="index.html" class="theme-logo">
+                            <img src="../cdn.shopify.com/s/files/1/0162/3932/9344/files/logo_160x8e4c.png?v=1546419901" alt="Naturecircle"srcset="//cdn.shopify.com/s/files/1/0162/3932/9344/files/logo_160x.png?v=1546419901 1x, //cdn.shopify.com/s/files/1/0162/3932/9344/files/logo_160x@2x.png?v=1546419901 2x">
+                        </a></div>
+                </div>
+                <div class="col-lg-5 col-sm-8">
+                    <div class="header-content d-flex justify-content-end">
+                        <div class="search-wrapper">
+                            <a href="#"><span class="icon icon-Search"></span></a>
+                            <form action="https://naturecircle.myshopify.com/search" method="get" class="search-form" role="search">
+                                <input type="search" name="q" value="" placeholder="Search our store"  aria-label="Search our store">
+                                <button type="submit" class="btn icon-fallback-text">
+                                    <span class="fallback-text">Search</span>
+                                </button>
+                            </form>
+
+                        </div>
+                        <div class="settings-wrapper">
+                            <a href="#"><i class="icon icon-Settings"></i></a>
+                            <div class="settings-content">
+                                <h4>My Account <i class="fa fa-angle-down"></i></h4>
+                                <ul>
+                                    <li><a href="account/register.html" class="modal-view button" data-toggle="modal" data-target="#register_box">Register</a></li>
+                                    <li>
+
+                                        <a href="account/login.html">Login</a>
+
+                                    </li>
+                                </ul><div class="switcher-currency-trigger currency">
+                                    <h4>Currency: <span class="current-currency">USD</span> <i class="fa fa-angle-down"></i></h4>
+
+                                    <ul class="switcher-dropdown" id="currencies">
+
+                                        <li data-currency="USD" class="currency__item"><a style="cursor: pointer">USD - US Dollar</a></li>
+
+                                    </ul>
+                                </div></div>
+                        </div>
+                        <div class="cart-wrapper">
+
+
+                            <a href="{{ path('commande_panier')}}">
+                                <i class="icon icon-FullShoppingCart"></i>
+                                <span class="bigcounter"></span>
+                            </a>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Area End -->
+    </header>
+{% endblock %}
+
+{% block content %}
+<body class="theme-blush">
+<div class="post-area blog-area pt-110 pb-95 blog-column">
+    <section class="content blog-page">
+    <h1>Modifier votre adresse</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('commande_panier') }}">Completer votre commande</a>
+        </li>
+
+    </ul>
+    </section>
+</div>
+</body>
+{% endblock %}

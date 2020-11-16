@@ -1,0 +1,51 @@
+avisservice:
+    resource: "@AvisserviceBundle/Resources/config/routing.yml"
+    prefix:   /avisservice
+
+service:
+    resource: "@ServiceBundle/Resources/config/routing.yml"
+    prefix:   /service
+
+commande_user:
+    resource: "@CommandeBundle/Controller/UserController.php"
+    type:     annotation
+
+evenement:
+    resource: "@EvenementBundle/Resources/config/routing.yml"
+    prefix:   /evenement
+
+administration:
+    resource: "@AdministrationBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+produit:
+    resource: "@ProduitBundle/Resources/config/routing.yml"
+    prefix:   /produit
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
+commande:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /forum
+
+promotion:
+    resource: "@PromotionBundle/Resources/config/routing.yml"
+    prefix:   /promotion
+
+sav:
+    resource: "@SavBundle/Resources/config/routing.yml"
+    prefix:   /sav
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

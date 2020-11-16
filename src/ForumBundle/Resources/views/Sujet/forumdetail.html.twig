@@ -1,0 +1,241 @@
+{% extends 'basef.html.twig' %}
+{% block content %}
+
+    <!--------------------- Modal -------------------------------------- -->
+    <div id="myModal" class="modal fade post-area blog-area pt-110 pb-95 blog-column" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="width: 600px;border-radius:20px" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modification de l'adresse</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table c_table theme-color">
+
+                        <tr>
+                            <th>Nom et Prenom:</th>
+                            <td>{{ user.nom }} {{ user.prenom }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adresse:</th>
+                            <td>
+                                <form class="row comment-form mt-2" method="post" >
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            {% for commentaire in commentaires %}
+                                            <textarea rows="4" class="form-control no-resize" name="adresse" id="adresse">{{ commentaire.commentaires }}</textarea>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Telephone:</th>
+                            <td> <input type="text" class="form-control no-resize" name="sexe" id="sexe" value="dfdsfds"></td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>efrdfdf</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Quitter</button>
+                    <button type="submit" class="btn btn btn-primary" id="valider" name="valider" >Confirmer l'adresse</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<body class="theme-blush">
+<div class="post-area blog-area pt-110 pb-95 blog-column">
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Blog Detail</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href=""><i class="zmdi zmdi-home"></i>Accueil</a></li>
+                            <li class="breadcrumb-item"><a href="">Forum</a></li>
+                            <li class="breadcrumb-item active">Forum Detail</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card">
+                            <div class="blogitem mb-5">
+                                <div class="blogitem-image">
+                                    {% for s in sujet%}
+                                    <a href="blog-details.html"><img src="{{ asset('uploads/images/' ~ s.image)  }}" width="600" height="400" alt="blog image"></a>
+                                    <span class="blogitem-date">{% if s.dateCreation %}{{ s.dateCreation|date('Y-m-d H:i') }}{% endif %}</span>
+                                </div>
+                                <div class="blogitem-content">
+                                    <div class="blogitem-header">
+                                        <div class="blogitem-meta">
+                                            <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">{{ s.nomAgent }}</a></span>
+                                            <span><i class="zmdi zmdi-hc-fw"></i><a href="javascript:void(0);"><font color="red" size="4">{{ s.nbrVue }}</font> <strong>Vues</strong></a></span>
+                                        </div>
+                                        <div class="blogitem-share">
+                                            <ul class="list-unstyled mb-0">
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-facebook-box"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-twitter-box"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-linkedin-box"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <h5><a href="blog-details.html"><strong>{{ s.nomSujet }}</strong></a></h5>
+
+                                    <blockquote class="blockquote">
+                                        <p>{{ s.description }}</p>
+                                        {% endfor %}
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </div>
+                        {% for commentaire in commentaires %}
+                        <form method="post" action="">
+                            <div class="card">
+                            <div class="header">
+                                <h2><strong>Comments</strong></h2>
+                            </div>
+                            <div class="">
+                                <ul class="comment-reply list-unstyled">
+                                    <li>
+                                        <div class="icon-box"><img class="img-fluid img-thumbnail" src="{{ asset('assets/images/sm/avatar2.jpg') }}" alt="Awesome Image"></div>
+                                        <div class="text-box">
+                                            <h5>{{ commentaire.nomClient }}</h5>
+                                            <span class="comment-date">{% if commentaire.dateCommentaire %}{{ commentaire.dateCommentaire|date('Y-m-d H:i') }}{% endif %}</span>
+                                            <a href="javascript:void(0);" class="replybutton"><i class="zmdi zmdi-mail-reply-all"></i> Reply</a>
+                                            <p>{{ commentaire.commentaires }}</p>
+                                        </div>
+                                        <button type="submit" class="btn btn-info btn-lg" name="modifier" id="modifier" data-toggle="modal" data-target="#myModal">Modifier</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        </form>
+                        {% endfor %}
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Laisser </strong> un commentaire</h2>
+                            </div>
+                            <div class="" id="Results">
+                                <small>Votre adresse email ne sera pas publiée. Les champs obligatoires sont marqués *</small>
+
+                                <form class="row comment-form mt-2" method="post" action="{{ path('forum_detail_comment',{'idSujet':idSujet}) }}" >
+
+                                    {#<div class="col-sm-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Email Address">
+                                        </div>
+                                    </div>#}
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                                <textarea rows="4" class="form-control no-resize" placeholder="Tapez ce que vous voulez..." name="commentaires" id="commentaires"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn btn-primary" id="valider" name="valider" href="{{ path('forum_detail_comment',{'idSujet':idSujet}) }}">Ajouter commentaire</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <form method="post" >
+                                <div class="tg-sortfilters">
+                                    <div class="tg-sortfilter tg-sortby">
+                                        <span>Trier par:</span>
+                                        <div class="tg-select">
+                                            <select id="tri" class="form-control show-tick" >
+                                                <option value="nomAsc" {% if tri=="nomAsc" %}selected{% endif %}>Nom Asc</option>
+                                                <option value="nomDes" {% if tri=="nomDes" %}selected{% endif %}>nomDes</option>
+                                                <option value="nbrVueAsc" {% if tri=="nbrVueAsc" %}selected{% endif %} >nbrVueAsc</option>
+                                                <option value="nbrVueDes" {% if tri=="nbrVueDes" %}selected{% endif %}>nbrVueDes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Categorie</strong> Sujet</h2>
+                            </div>
+                            <div class="body">
+                                <ul class="list-unstyled mb-0 widget-categories">
+                                    {% for categoriesujet in categoriesujets %}
+                                        <li><a  href="{{ path('forum_list_filter',{'idCategorieSujet':categoriesujet.idCategorieSujet})}}">{{ categoriesujet.NomcategorieSujet }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Email</strong> Newsletter</h2>
+                            </div>
+                            <div class="body newsletter">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter Email">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2"><i class="zmdi zmdi-mail-send"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+    {% block js %}
+        {{ parent() }}
+    {% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/search.js" type="text/javascript"></script>
+    <script>
+
+        $("#commentaires").keyup(function(){
+            if($(this).val().length < 2){
+                $(this).css({
+                    borderColor : 'red',
+                    color : 'red'
+                });
+                document.getElementById("valider").disabled = true;
+            }
+            else{
+                $(this).css({
+                    borderColor : 'green',
+                    color : 'grey',
+
+                });
+                document.getElementById("valider").disabled = false;
+            }
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#tri").on('change',function(){
+                var value = $('#tri').val();
+                window.location= "{{ path('forum_list_tri') }}"+"?tri="+value;
+            });
+        })
+
+    </script>
+{% endblock %}

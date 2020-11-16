@@ -1,0 +1,142 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+
+<body class="theme-blush">
+<div class="post-area blog-area pt-110 pb-95 blog-column">
+    <section class="content blog-page">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Liste des sujets</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{ path('forum_list') }}"><i class="zmdi zmdi-home"></i>Accueil</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card">
+                            <div class="blogitem mb-5">
+                                <div class="blogitem-image">
+                                    {% for s in sujet %}
+                                    <a href="blog-details.html"><img src="{{ asset('uploads/images/' ~ s.image)  }} " width="800" height="600" alt="blog image"></a>
+                                    <span class="blogitem-date">{% if s.dateCreation %}{{ s.dateCreation|date('Y-m-d H:i') }}{% endif %}</span>
+                                </div>
+
+                                <div class="blogitem-content">
+                                    <div class="blogitem-header">
+                                        <div class="blogitem-meta">
+                                            <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">{{ s.nomAgent }}</a></span>
+                                            <span><i class="zmdi zmdi-comments"></i><a href="blog-details.html">Comments(3)</a></span>
+                                        </div>
+                                        <div class="blogitem-share">
+                                            <ul class="list-unstyled mb-0">
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-facebook-box"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-instagram"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-twitter-box"></i></a></li>
+                                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-linkedin-box"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <h5><a href="blog-details.html">{{ s.nomSujet }}</a></h5>
+                                    <p>{{ s.description }}</p>
+
+                                    <a href="{{ path('forum_detail',{'idSujet':s.idSujet})}}" class="btn btn-info">Read More</a>
+                                    {% endfor %}
+                                    <div class="zmdi-navigation">
+                                        {{ knp_pagination_render(sujet) }}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12">
+                        <div class="card">
+                            <form method="post" >
+                                <div class="tg-sortfilters">
+                                    <div class="tg-sortfilter tg-sortby">
+                                        <span>Trier par:</span>
+                                        <div class="tg-select">
+                                            <select id="tri" class="form-control show-tick" >
+                                                <option value="nomAsc" {% if tri=="nomAsc" %}selected{% endif %}>Nom Asc</option>
+                                                <option value="nomDes" {% if tri=="nomDes" %}selected{% endif %}>nomDes</option>
+                                                <option value="nbrVueAsc" {% if tri=="nbrVueAsc" %}selected{% endif %} >nbrVueAsc</option>
+                                                <option value="nbrVueDes" {% if tri=="nbrVueDes" %}selected{% endif %}>nbrVueDes</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    {#<div class="tg-sortfilter tg-arrange">
+                                        <span>Arrange:</span>
+                                        <div class="tg-select">
+                                            <select id="triDSC">
+                                                <option value="asc" {% if triDSC=="asc" %}selected{% endif %} >Asc</option>
+                                                <option value="dsc" {% if triDSC=="dsc" %}selected{% endif %}>DES</option>
+                                            </select>
+                                        </div>
+                                    </div>#}
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Categorie</strong> Sujet</h2>
+                            </div>
+                            <div class="body">
+                                <ul class="list-unstyled mb-0 widget-categories">
+                                    {% for categoriesujet in categoriesujets %}
+                                       <li><a  href="{{ path('forum_list_filter',{'idCategorieSujet':categoriesujet.idCategorieSujet})}}">{{ categoriesujet.NomcategorieSujet }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Email</strong> Newsletter</h2>
+                            </div>
+                            <div class="body newsletter">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter Email">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2"><i class="zmdi zmdi-mail-send"></i></span>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>
+</body>
+
+
+    {########################################################################################}
+
+
+    {% block js %}
+        {{ parent() }}
+    {% endblock %}
+    <script>
+        $(document).ready(function () {
+            $("#tri").on('change',function(){
+                var value = $('#tri').val();
+                window.location= "{{ path('forum_list_tri') }}"+"?tri="+value;
+            });
+        })
+
+    </script>
+
+{% endblock %}
+
+
+
+
+

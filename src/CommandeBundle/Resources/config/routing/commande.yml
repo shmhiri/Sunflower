@@ -1,0 +1,84 @@
+commande_index:
+    path:     /
+    defaults: { _controller: "CommandeBundle:Commande:index" }
+    methods:  GET
+
+commande_show:
+    path:     /{idCmd}/show
+    defaults: { _controller: "CommandeBundle:Commande:showpp" }
+    methods:  GET
+
+commande_new:
+    path:     /new
+    defaults: { _controller: "CommandeBundle:Commande:new" }
+    methods:  [GET, POST]
+
+commande_edit:
+    path:     /{idCmd}/edit
+    defaults: { _controller: "CommandeBundle:Commande:edit" }
+    methods:  [GET, POST]
+
+commande_delete:
+    path:     /{idCmd}/delete
+    defaults: { _controller: "CommandeBundle:Commande:delete" }
+    methods:  DELETE
+
+commande_invoice:
+    path:     /{idCmd}/invoice
+    defaults: { _controller: "CommandeBundle:Commande:invoice" }
+    methods:  GET
+
+commande_panier:
+    path:     /panier
+    defaults: { _controller: "CommandeBundle:Commande:panier" }
+    methods:  GET
+
+commande_delpanier:
+    path:     /panier/{idLigneCmd}
+    defaults: { _controller: "CommandeBundle:Commande:delpanier" }
+    methods:  GET
+
+commande_ajouter:
+    path:  /ajouter/{idProduit}
+    defaults: { _controller: "CommandeBundle:Commande:ajouter" }
+    methods:  GET
+
+panier_delete:
+    path:     /{idProduit}/delete
+    defaults: { _controller: "CommandeBundle:Commande:deleteP" }
+    methods:  DELETE
+
+produite_index:
+    path:     /Cmd
+    defaults: { _controller: "CommandeBundle:Commande:Cmd" }
+    methods:  GET
+
+add_qte:
+    path:  /add/{idProduit}
+    defaults: { _controller: "CommandeBundle:Commande:addqte" }
+    methods:  GET
+
+del_qte:
+    path:  /del/{idProduit}
+    defaults: { _controller: "CommandeBundle:Commande:delqte" }
+    methods:  GET
+
+commande_final:
+    path:  /final/
+    defaults: { _controller: "CommandeBundle:Commande:final" }
+    methods:  [GET, POST]
+
+commande_coupon:
+    path:  /finale/
+    defaults: { _controller: "CommandeBundle:Commande:coupon" }
+    methods:  [GET, POST]
+
+commande_list:
+    path:     /mycmd
+    defaults: { _controller: "CommandeBundle:Commande:listcmd" }
+    methods:  GET
+
+commande_showuser:
+    path:     /{idCmd}/showuser
+    defaults: { _controller: "CommandeBundle:Commande:show" }
+    methods:  GET

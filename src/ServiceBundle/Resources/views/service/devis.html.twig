@@ -1,0 +1,41 @@
+{% extends 'basef.html.twig' %}
+{% block content %}
+    <br class="theme-blush">
+    <br>  <br>
+    <section class="content">
+        <div class="body_scroll ">
+
+
+            <div class="container-fluid">
+                <div class="row clearfix">
+
+                    {% for service in services %}
+
+                        {% set imag = '../../uploads/'~service.image %}
+
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                            <div class="card">
+                                <div class="body product_item">
+                                    <span class="label onsale">{{ service.type }}</span>
+                                    <div>
+                                        <img src="{{ asset('uploads/images/' ~ service.image)}}" alt="Image" width="200" height="200" /></div>
+                                    <div class="product_details">
+                                        <a href="{{ path('service_showuser', { 'idService': service.idService}) }}"></a>
+                                        <ul class="product_price list-unstyled"><li class="old_price">{{service.region}}</li></ul>
+                                        <ul class="product_price list-unstyled"><li class="old_price">{{service.prix }}DT</li></ul>
+                                    </div>
+                                    <div class="action">
+                                        <a class="btn btn-primary"
+                                           href="{{ path('service_showuser', { 'idService': service.idService }) }}">
+                                            <i class="zmdi zmdi-hc-fw"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

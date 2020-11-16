@@ -1,0 +1,11 @@
+service_service:
+    resource: "@ServiceBundle/Resources/config/routing/service.yml"
+    prefix:   /service
+
+service_homepage:
+    path:     /
+    defaults: { _controller: ServiceBundle:Default:index }
+
+service_devis:
+    path:     /devis
+    defaults: { _controller: ServiceBundle:Service:devis}

@@ -1,0 +1,24 @@
+avisservice_index:
+    path:     /{idService}
+    defaults: { _controller: "AvisserviceBundle:AvisService:index" }
+    methods:  [GET, POST]
+
+avisservice_show:
+    path:     /{idAvis}/show
+    defaults: { _controller: "AvisserviceBundle:AvisService:show" }
+    methods:  GET
+
+avisservice_new:
+    path:     /new/{idService}
+    defaults: { _controller: "AvisserviceBundle:AvisService:new" }
+    methods:  [GET, POST]
+
+avisservice_edit:
+    path:     /{idAvis}/edit
+    defaults: { _controller: "AvisserviceBundle:AvisService:edit" }
+    methods:  [GET, POST]
+
+avisservice_delete:
+    path:     /{idAvis}/delete
+    defaults: { _controller: "AvisserviceBundle:AvisService:delete" }
+    methods:  DELETE

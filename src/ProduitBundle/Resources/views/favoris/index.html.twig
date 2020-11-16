@@ -1,0 +1,58 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+    <br><br><br><br><br><br><br>
+
+    <h1>Liste des Favoris</h1>
+
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="table-responsive">
+                        <table class="table table-hover product_item c_table theme-dark mb-0 footable footable-1 footable-paging footable-paging-center breakpoint-lg" style="">
+                            <thead>
+                            <tr class="footable">
+                                <th class="footable-sortable footable-first-visible" style="display: table-cell;">
+                                    Image<span class="fooicon fooicon-sort"></span></th><th class="footable-sortable" style="display: table-cell;">
+                                    Nom Produit<span class="fooicon fooicon-sort"></span></th><th data-breakpoints="sm xs" class="footable-sortable" style="display: table-cell;">
+                                    Description<span class="fooicon fooicon-sort"></span></th><th data-breakpoints="xs" class="footable-sortable" style="display: table-cell;">
+                                    Disponibilité<span class="fooicon fooicon-sort"></span></th><th data-breakpoints="sm xs md" class="footable-sortable footable-last-visible" style="display: table-cell;">
+                                    Action<span class="fooicon fooicon-sort"></span></th></tr>
+                            </thead>
+                            <tbody>
+                            {% for favori in favoris %}
+                            <tr>
+                                {% set imag = 'uploads/images/'~favori.image %}
+                                <td class="footable-first-visible" style="display: table-cell;"><img src="{{ asset(imag)}}"  width="48" alt="Product img"></td>
+                                <td style="display: table-cell;"><h5>{{ favori.nomProduit }}</h5></td>
+                                <td style="display: table-cell;"><span class="text-muted"> {{ favori.description }}</span></td>
+                                {% if favori.disponibilite=="true" %}
+                                    <td style="display: table-cell;"><span class="col-green">Disponible</span></td>
+                                {% else  %}
+                                    <td style="display: table-cell;"><span class="col-red">Indisponible</span></td>
+                                {% endif %}
+                                <td class="footable-last-visible" style="display: table-cell;">
+
+                                    {% if favori.disponibilite=="true" %}
+                                    <a class="btn btn-app btn-primary fa fa-shopping-cart btn-lg"  href="{{ path('commande_ajouter', { 'idProduit' : favori.idProduit }) }}"></a>
+                                    {% endif %}
+                                    <a class="btn btn-app btn-primary fa fa-trash btn-lg"  href="{{ path('favoris_delete', { 'idFavoris': favori.idFavoris}) }}"></a>
+                                </td></tr>
+                            {% endfor %}
+
+                        </tbody>
+
+                        </table>
+
+
+                    </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    </br></br></br>
+{% endblock %}

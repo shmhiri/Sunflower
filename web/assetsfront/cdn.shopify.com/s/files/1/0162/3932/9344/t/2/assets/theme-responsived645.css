@@ -1,0 +1,127 @@
+/* Large screen desktop */
+@media (min-width: 1365px) and (max-width: 1500px){
+
+
+
+}
+
+@media (min-width: 1200px) and (max-width: 1299px){
+
+
+
+}
+
+
+@media (min-width: 1170px) and (max-width: 1299px){
+
+
+
+}
+
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+.shop-area .ht-product-tab .ht-tab-content .nav a {
+    margin-right: 8px;
+}
+.ht-main-menu nav > ul > li {
+    margin: 0 6px;
+}
+  .food-category-area {
+    padding: 76px 0 50px;
+    padding-top: 0;
+  }
+  
+
+  
+
+
+}
+
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .cart-total {
+    margin-top: 30px;
+  }
+  .logo.text-center {
+    text-align: left !important;
+  }
+  .food-category-area {
+    padding: 76px 0 50px;
+    padding-top: 0;
+  }
+  .featured-area.bg-3 {
+    background-size: cover;
+  }
+  
+
+
+}
+
+
+/* Small and large mobile :320px. */
+@media (max-width: 767px) {
+  .cart-total {
+    margin-top: 30px;
+  }
+  .cart-buttons .theme-default-button{
+    padding: 8px 20px;
+  }
+  .search-item-image {
+    width: 100%;
+  }
+  .search-item-content {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 30px;
+  }
+  .product-detials-area .product-details-text .product-tag-cat {
+    display: inline-block;
+    justify-content: left;
+  }
+  .add-cart-product .shopify-payment-button div {
+    line-height: 1;
+    display: ruby-base-container;
+  }
+  .add-cart-product .shopify-payment-button button.shopify-payment-button__button {
+    margin-top: 30px;
+  }
+  .product-detials-area .product-details-text .add-cart-product {
+    margin-top: 25px;
+  }
+  .post-area .single-post-item .single-post-title {
+    line-height: 23px;
+  }
+  
+  
+}
+
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.add-cart-product .shopify-payment-button button.shopify-payment-button__button {
+    margin-top: 0px;
+}
+  
+
+}
+
+/* Small Mobile :320px. */
+@media only screen and (max-width: 479px) {
+  .login-form-container {
+    padding: 30px 20px;
+  }
+  .form-action-button .theme-default-button + .theme-default-button, 
+  .cart-buttons .theme-default-button + .theme-default-button{
+    margin-left: 0;
+    margin-top: 20px;
+  }
+  .form-action-button .theme-default-button,
+  .cart-buttons .theme-default-button,
+  .guest-form-container .theme-default-button{
+    float: left;
+    width: 100%;
+  }
+}

@@ -1,0 +1,36 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>List des Commandes </h1>
+
+    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+        <thead>
+            <tr>
+                <th>Etat de la Commande</th>
+                <th>Mode de Paiement</th>
+                <th>Lieu de Livraison</th>
+                <th>Montant en DT</th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr><td>{{ commande.etatCmd }}</td>
+
+                <td>{{ commande.modeP }}</td>
+                <td>{{ commande.lieuLiv }}</td>
+                <td>{{ commande.montant }} DT</td>
+                <td>
+
+                            <a href="{{ path('commande_show', { 'idCmd': commande.idCmd }) }}"class="btn btn-app btn-primary waves-effect">Afficher</a>
+
+                            <a href="{{ path('commande_edit', { 'idCmd': commande.idCmd }) }}"class="btn btn-app btn-secondaire waves-effect">Modifier</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

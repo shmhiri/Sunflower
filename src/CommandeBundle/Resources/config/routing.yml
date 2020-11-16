@@ -1,0 +1,21 @@
+commande_commande:
+    resource: "@CommandeBundle/Resources/config/routing/commande.yml"
+    prefix:   /commande
+
+user_user:
+    resource: "@CommandeBundle/Resources/config/routing/user.yml"
+    prefix:   /ma
+
+coupon_coupon:
+    resource: "@CommandeBundle/Resources/config/routing/coupon.yml"
+    prefix:   /coupon
+
+produite_index:
+    path:     /Cmd
+    defaults: { _controller: "CommandeBundle:Commande:Cmd" }
+    methods:  GET
+
+new:
+    path:     /new
+    defaults: { _controller: CommandeBundle:PanierController:new }
+

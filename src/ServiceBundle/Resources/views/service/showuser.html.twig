@@ -1,0 +1,74 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+    <h1>Service</h1>
+<section class="content">
+    <ul>
+        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+            <tbody>
+
+            <tr>
+                <th>Nomservice</th>
+                <td>{{ service.nomService }}</td>
+            </tr>
+            <tr>
+                <th>Nomagent</th>
+                <td>{{ service.nomAgent }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ service.type }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ service.prix }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ service.description }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ service.etat }}</td>
+            </tr>
+            <tr>
+                <th>Contact</th>
+                <td>{{ service.contact }}</td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td>{{ service.region }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    <img src="{{ asset('uploads/images/' ~ service.image)}}" alt="Image" width="200" height="200" />
+            </tr>
+
+
+
+            </tbody>
+        </table>
+        <table>
+        <a class="btn btn-secondary  btn-lg "
+           href="{{ path('avisservice_new', { idService: service.idService }) }}">
+            avis
+            <i class="zmdi zmdi-hc-fw"></i>
+
+        <a class="btn btn-outline-info  btn-lg "
+           href="#">
+            devis
+            <i class="zmdi zmdi-hc-fw"></i>
+
+
+        <a class="btn btn-primary btn-lg "
+           href="{{ path('service_showfront') }}">
+            retour
+            <i class="zmdi zmdi-hc-fw" ></i>
+        </a>
+        </table>
+
+    </ul>
+    </section>
+{% endblock %}
+

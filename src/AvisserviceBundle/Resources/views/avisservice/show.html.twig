@@ -1,0 +1,56 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+    <h1>Avisservice</h1>
+<section class="content">
+    <table>
+        <tbody>
+
+            <tr>
+                <th>Nomavis</th>
+                <td>{{ avisService.nomAvis }}</td>
+            </tr>
+            <tr>
+                <th>Nomclient</th>
+                <td>{{ avisService.nomClient }}</td>
+            </tr>
+            <tr>
+                <th>Nomservice</th>
+                <td>{{ avisService.nomService }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ avisService.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Rating</th>
+                <td>{{ avisService.rating }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <td>
+        <a class="btn btn-primary btn-lg btn-block"
+           href="{{ path('avisservice_edit', { 'idAvis': avisService.idAvis }) }}">
+            <i class="zmdi zmdi-hc-fw btn-lg "> Edit </i>
+        </a>
+        </td>
+        <td>
+            {{ form_start(delete_form) }}
+            <div class="btn btn-danger btn-lg btn-block  ">
+                <button class="btn btn-danger zmdi zmdi-hc-fw" data-type="success"  name="supprimer" type="submit"> Delete</button>
+            </div>
+        </td>
+        <td>
+            {{ form_end(delete_form) }}
+
+        <a class="btn btn-primary btn-lg btn-block"
+           href="{{ path('service_showfront') }}">
+            retour
+            <i class="zmdi zmdi-hc-fw" ></i>
+        </a>
+        </td>
+    </table>
+    </section>
+{% endblock %}

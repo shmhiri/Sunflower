@@ -1,0 +1,62 @@
+{% extends 'basef.html.twig' %}
+{% block titre %}  <title>SunFlower affichage détaillé</title>{% endblock %}
+
+{% block content %}
+
+    <br>  <br> <br>  <br>
+    <section class="content">
+        <div class="body_scroll">
+
+
+            <div class="container-fluid">
+                <div class="row clearfix">
+
+
+    <h1>Mes Commandes </h1>
+                <br>  <br>
+                {% if commandes!=null %}
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Etat de la Commande</th>
+                <th>Mode de Paiement</th>
+                <th>Lieu de Livraison</th>
+                <th>Montant en DT</th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commande in commandes %}
+            <tr>
+                <td>{{ commande.etatCmd }}</td>
+
+                <td>{{ commande.modeP }}</td>
+                <td>{{ commande.lieuLiv }}</td>
+                <td>{{ commande.montant }} DT</td>
+                <td>
+                    <a href="{{ path('commande_showuser', { 'idCmd': commande.idCmd }) }}"class="btn btn-app btn-primary waves-effect">Afficher</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+                {% endif %}
+                    {%if commandes==null  %}
+                        <div class="col-md-12 text-center">
+                            <td><img src="{{ asset('uploads/images/empty.png' ) }}" width="260" height="260" alt="Product img"></td>
+                            <div> pas de commande !</div>
+                            <div >Explorez nos catégories et découvrez nos meilleures offres!</div>
+                        </div>
+
+                    {%  endif%}
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'basef.html.twig' %}
+ {% block content %}
+     <br><br><br><br>
+     <section class="content">
+         <div class="body_scroll">
+             <div class="block-header">
+                 <div class="row">
+                     <div class="col-lg-7 col-md-6 col-sm-12">
+                         <h1> Promotion</h1>
+                         <ul class="breadcrumb">
+                             <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                             <li class="breadcrumb-item"><a href="blog-dashboard.html">Produit</a></li>
+                             <li class="breadcrumb-item active">Promotion View</li>
+
+                         </ul>
+                         <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                     </div>
+                     <div class="col-lg-5 col-md-6 col-sm-12">
+                         <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                     </div>
+                 </div>
+             </div>
+             <div class="container">
+                 <div class="row">
+                     <div class="col-lg-6 col-md-12">
+                         <div class="card">
+
+
+
+                         </div>
+                     </div>
+                     <div class="col-lg-6 col-md-12">
+
+
+
+                     </div>
+
+
+
+
+
+
+
+
+                     <div class="blogitem mb-5">
+                         <div class="blogitem-image">
+                             <a href="blog-details.html"><img src="{{ asset('uploads/images/' ~ img) }}" alt="blog image"></a>
+                             <span class="blogitem-date">{{ promotion.dateDebut|date('d-m-Y') }}</span>
+
+                         </div>date Fin      :   <span class="blogitem-date">{{ promotion.dateFin|date('d-m-Y') }}</span>
+                         <div class="blogitem-content">
+                             <div class="blogitem-header">
+                                 <div class="blogitem-meta">
+                                     <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">{{ promotion.nomAgent }}</a></span>
+                                     <span><i class="zmdi zmdi-star"></i><a href="blog-details.html"> pourcentage : {{ promotion.Pourcentage }} %</a></span>
+                                 </div>
+                               prix hab : {{ promotion.prixHab }} (DT)<br>
+                              prix promo : {{ promotion.prixPromo }} (DT)<br>
+                                 <div class="blogitem-share">
+                                     <ul class="list-unstyled mb-0">
+
+                                     </ul>
+
+                                 </div>
+                             </div>
+                             <h5><a href="blog-details.html">Le Produit : {{ promotion.nomProduit }}</a></h5>
+                             Description : <br>
+                             <p>{{ promotion.description }}</p>
+
+
+
+
+
+
+
+                         </div>
+                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 </div>
+             </div>
+         </div>
+         </div>
+     </section>
+ {% endblock %}

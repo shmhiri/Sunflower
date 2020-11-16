@@ -1,0 +1,107 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+    <br class="theme-blush">
+    <br>  <br><br><br><br>
+
+    <table>
+        <section class="container col-lg-12">
+            <div class="row flex-row-reverse">
+
+                <div class="content col-lg-10">
+                    <div class="align-right">
+                        <form method="post">
+                            <div class="product-sorting-wrapper">
+                                <div class="product-show shorting-style">
+                                    <label>Trier:</label>
+                                    <select id="sorting">
+                                        <option value="pasc"{% if sorting=="pasc" %}selected{% endif %}>Prix Ascendant</option>
+                                        <option value="pdsc"{% if sorting=="pdsc" %}selected{% endif %}>Prix Descendant</option>
+                                        <option value="nasc"{% if sorting=="nasc" %}selected{% endif %}>Nom A-Z</option>
+                                        <option value="ndsc"{% if sorting=="ndsc" %}selected{% endif %}>Nom Z-A</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="body_scroll">
+                        <div class="container-fluid">
+                            <br>
+                            <div class="row clearfix">
+
+                                {% for produit in produits %}
+
+                                    {% set imag = 'uploads/images/'~produit.image %}
+
+                                    <div class="col-xl-3 col-lg-9 col-md-9 col-sm-2 ">
+                                        <div class="card" >
+                                            <div class="body product_item">
+                                                {% if produit.quantite>0 %}
+                                                    <span class="badge badge-success">Disponible!</span>
+                                                {% else %}
+                                                    <span  class="badge badge-danger">Indisponible!</span>
+                                                {% endif %}
+                                                <div>   <img src="{{ asset(imag) }}  " alt="Product" width="250" height="250" ></div>
+                                                <div class="product_details">
+                                                    <a href="{{ path('produit_showfront', { 'idProduit': produit.idProduit}) }}">{{ produit.nomProduit }}</a>
+
+                                                    <ul class="product_price list-unstyled"><li>{{produit.prix }}DT</li></ul>
+                                                </div>
+                                                <div class="action">
+                                                    <a class="btn btn-app btn-primary fa fa-heart btn-lg" href="{{ path('favoris_new', { 'idProduit': produit.idProduit}) }}"></a>
+                                                    <a class="btn btn-app btn-primary fa fa-eye  btn-lg" href="{{ path('produit_showfront', { 'idProduit': produit.idProduit}) }}"></a>
+                                                    {% if produit.quantite>0 %}
+                                                        <a class="btn btn-app btn-primary fa fa-shopping-cart btn-lg" href="{{ path('commande_ajouter', { 'idProduit' : produit.idProduit }) }}"></a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <br><br><br><br>
+                <div class="col-lg-2">
+                    <br><br><br><br><br>
+                    <div class="shop-widget">
+                        <h4 class="shop-sidebar-title">Filtrer par categorie</h4>
+                        <div class="shop-catigory">
+                            <ul id="faq">
+
+                                {% for prodsss in prod %}
+                                    <li><a  href="{{ path('produit_indexfronte',{'idCategorie':prodsss.idCategorie})}}">{{ prodsss.nomCategorie }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <a class="btn btn-app btn-light  btn-sm" href="{{ path('produit_indexfront')}}"  >Supprimer filter</a>
+                    </div>
+
+            </div>
+            <div class="navigation" align="right">
+                {{ knp_pagination_render(produits) }}
+            </div>
+            </div>
+        </section>
+
+    </table>
+
+
+    {% block js %}
+        {{ parent() }}
+    {% endblock %}
+    <script>
+        $(document).ready(function () {
+            $("#sorting").on('change',function(){
+                var value  = $('#sorting').val();
+                window.location= "?sorting="+value;
+            });
+        })
+
+    </script>
+
+{% endblock %}

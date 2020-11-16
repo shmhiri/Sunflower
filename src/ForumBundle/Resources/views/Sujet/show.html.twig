@@ -1,0 +1,80 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+
+
+    <h1>Detail Sujet</h1>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-12">
+                                <div class="preview preview-pic tab-content">
+                                    <div class="tab-pane active" id="product_1">
+                                        <img src="{{ asset('uploads/images/' ~ sujet.image)  }} " width="200" height="200" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-9 col-lg-8 col-md-12">
+                                <div class="product details">
+
+                                    <h4 class="product-title mb-0">
+                                        <FONT STYLE="text-decoration:underline">{{ sujet.nomSujet }}</FONT>
+                                    </h4>
+
+                                    <span class="col-amber">{{ sujet.type }}</span>
+
+                                    <div class="rating">
+                                        <div class="stars">
+                                            <span class="zmdi zmdi-star col-amber"></span>
+                                            <span class="zmdi zmdi-star col-amber"></span>
+                                            <span class="zmdi zmdi-star col-amber"></span>
+                                            <span class="zmdi zmdi-star col-amber"></span>
+                                            <span class="zmdi zmdi-star-outline"></span>
+                                        </div>
+
+                                    </div>
+                                     <span class="m-l-10" ><font color="red" size="4">{{ sujet.nbrVue }}</font></span><strong>Vues</strong>
+                                    <hr>
+                                    <p class="product-description">
+                                        <font size="5" FACE="Arial, Helvetica, sans-serif">{{ sujet.description }}</font>
+
+                                    </p>
+
+                                    <h5 class="sizes">{{ sujet.nomAgent }}
+                                        <span class="size" > {% if sujet.dateCreation %}{{ sujet.dateCreation|date('Y-m-d H:i') }}{% endif %}</span>
+                                    </h5>
+
+                                    {# <p>Nomcategoriesujet</p>
+                                         {{ sujet.nomCategorieSujet }}
+                                     #}
+
+
+                                        <a class="btn btn-app" href="{{ path('sujet_index') }}">Retour vers la listes des Sujets</a>
+                                        <a href="{{ path('sujet_edit', { 'idSujet': sujet.idSujet }) }}">
+                                            <button type="button" class="btn btn-raised m-b-10 btn-warning waves-effect" data-placement-from="bottom" data-placement-align="right" data-animate-enter="" data-animate-exit="" data-color-name="alert-warning"> Modifier</button>
+                                        </a>
+
+                                            {{ form_start(delete_form) }}
+                                    <div class="jsdemo-notification-button">
+                                    <button type="submit" class="btn btn-raised m-b-10 bg-red waves-effect" data-placement-from="bottom" data-placement-align="left" data-animate-enter="" data-animate-exit="" data-color-name="bg-red"> Supprimer </button>
+                                    </div>
+                                            {{ form_end(delete_form) }}
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

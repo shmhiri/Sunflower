@@ -1,0 +1,39 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+    <h1>ajouter Avis service </h1>
+<section class="content">
+    {{ form_start(form) }}
+    <div class="form-group">
+        <label>No
+            m service</label>
+        {{ form_widget(form.nomAvis,{'attr':{'class':'form-control','placeholder':'nom avis...'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>Rating</label>
+        {{ form_widget(form.rating,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        <label>Commnentaire</label>
+        {{ form_widget(form.commentaire,{'attr':{'class':'form-control','placeholder':'commantaire...'}}) }}
+    </div>
+    <table>
+<tr>
+    <td>
+    <a class="row clearfix js-sweetalert">
+        <button class="btn btn-raised btn-primary btn-lg  waves-effect" data-type="success" name="ajout" type="submit">Ajouter</button>
+    </a>
+
+    <td>
+    {{ form_end(form) }}
+
+        <a class="btn btn-secondary  btn-lg"  href="{{ path('service_showfront') }}">
+            retour
+            <i class="zmdi zmdi-hc-fw"></i>
+        </a>
+    </td>
+    </tr>
+    </table>
+    </section>
+{% endblock %}

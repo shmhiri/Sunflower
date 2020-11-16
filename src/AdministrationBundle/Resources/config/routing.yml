@@ -1,0 +1,15 @@
+evenement_show:
+    path:     /evenement
+    defaults: { _controller: AdministrationBundle:Evenement:show }
+
+evenement_admin_add:
+    path:     /evenement/add
+    defaults: { _controller: AdministrationBundle:Evenement:add}
+
+evenement_admin_delete:
+    path:     /evenement/{id}/delete
+    defaults: { _controller: AdministrationBundle:Evenement:delete}
+
+evenement__admin_update:
+    path:     /evenement/{id}/update
+    defaults: { _controller: AdministrationBundle:Evenement:delete}

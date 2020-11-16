@@ -1,0 +1,39 @@
+service_index:
+    path:     /
+    defaults: { _controller: "ServiceBundle:Service:index" }
+    methods:  [GET, POST]
+
+service_show:
+    path:     /{idService}/show
+    defaults: { _controller: "ServiceBundle:Service:show" }
+    methods:  [GET, POST]
+
+service_new:
+    path:     /admin/back/new
+    defaults: { _controller: "ServiceBundle:Service:new" }
+    methods:  [GET, POST]
+
+service_edit:
+    path:     /admin/back/{idService}/edit
+    defaults: { _controller: "ServiceBundle:Service:edit" }
+    methods:  [GET, POST]
+
+service_delete:
+    path:     /admin/back/{idService}/delete
+    defaults: { _controller: "ServiceBundle:Service:delete" }
+    methods:  DELETE
+
+service_showfront:
+    path:     /showfront
+    defaults: { _controller: "ServiceBundle:Service:showfront" }
+    methods:  [GET, POST]
+
+service_showuser:
+    path:     /{idService}/showuser
+    defaults: { _controller: "ServiceBundle:Service:showuser" }
+    methods:  GET
+
+service_recherche:
+    path:     /admin/back/rech
+    defaults: { _controller: "ServiceBundle:Service:recherche" }
+    methods:  [GET, POST]

@@ -1,0 +1,38 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+    <h1>modfier avis</h1>
+<section class="content">
+    {{ form_start(edit_form) }}
+    <div class="form-group">
+        <label>Nom service</label>
+        {{ form_widget(edit_form.nomAvis,{'attr':{'class':'form-control','placeholder':'nom avis...'}}) }}
+    </div>
+    <div class="form-group">
+    <label>Rating</label>
+    {{ form_widget(edit_form.rating,{'attr':{'class':'form-control'}}) }}
+    </div>
+    <div class="form-group">
+        <label>Commnentaire</label>
+        {{ form_widget(edit_form.commentaire,{'attr':{'class':'form-control','placeholder':'commantaire...'}}) }}
+    </div>
+
+    <table>
+
+        <td>
+            <div class="btn btn-primary btn-lg btn-block">
+                <button class="btn btn-primary zmdi zmdi-hc-fw" data-type="success" name="modfier" type="submit"></button>
+            </div>
+            {{ form_end(edit_form) }}
+        </td>
+        <td>
+            {{ form_start(delete_form) }}
+            <div class="btn btn-danger btn-lg btn-block  ">
+                <button class="btn btn-danger zmdi zmdi-hc-fw" data-type="success" name="supprimer" type="submit"></button>
+            </div>
+            {{ form_end(delete_form) }}
+
+        </td>
+    </table>
+    </section>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+<main>
+    <div class="customer-page theme-default-margin">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+                    <div class="login">
+                        <div class="login-form-container">
+                            <div class="login-text">
+                                <h2>Create Account</h2>
+                                <p>Please Register using account detail bellow.</p>
+                            </div>
+                            <div class="register-form">
+
+
+
+                                <input class="form-control background-white" type="email"
+                   placeholder="Email"
+                   id="fos_user_registration_form_email"
+                   name="fos_user_registration_form[email]"
+                   required="required"
+                   aria-label="Text input with dropdown button"
+                   autocomplete="username">
+
+
+
+            <input class="form-control background-white" type="text"
+                   placeholder="Username"
+                   id="fos_user_registration_form_username"
+                   name="fos_user_registration_form[username]"
+                   required="required"
+                   maxlength="180"
+                   pattern=".{2,}"
+                   aria-label="Text input with dropdown button"
+            >
+
+
+
+
+            <input class="form-control background-white" type="Password"
+                   placeholder="Password"
+                   id="fos_user_registration_form_plainPassword_first"
+                   name="fos_user_registration_form[plainPassword][first]"
+                   required="required"
+                   autocomplete="new-password"
+                   aria-label="Text input with dropdown button">
+
+
+
+
+            <input class="form-control background-white" type="Password"
+                   placeholder="Confirm Password"
+                   id="fos_user_registration_form_plainPassword_second"
+                   name="fos_user_registration_form[plainPassword][second]"
+                   required="required"
+                   autocomplete="new-password"
+                   aria-label="Text input with dropdown button">
+
+    {{ form_widget(form._token) }}
+
+
+                                <div class="login-toggle-btn">
+                                <div class="form-action-button">
+                                    <button class="theme-default-button" value="{{ 'registration.submit'|trans }}" type="submit">
+                                        Create
+                                    </button>
+                                </div>
+                                </div>
+
+                            </div></div></div></div></div></div></div></main>
+
+{{ form_end(form, {'render_rest': false}) }}

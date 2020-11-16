@@ -1,0 +1,139 @@
+{% extends 'basef.html.twig' %}
+ {% block content %}
+     <br><br><br><br><br><br>
+     <section class="content">
+         <div class="body_scroll">
+             <div class="block-header">
+                 <div class="row">
+                     <div class="col-lg-7 col-md-6 col-sm-12">
+                         <h1>Lists des evenements</h1>
+                         <ul class="breadcrumb">
+                             <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Aero</a></li>
+                             <li class="breadcrumb-item"><a href="blog-dashboard.html">Evenements</a></li>
+                             <li class="breadcrumb-item active">Evenements View</li>
+
+                         </ul><h3>Nombre eve participée {{ nbr }}</h3>
+                         <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                     </div>
+                     <div class="col-lg-5 col-md-6 col-sm-12">
+                         <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
+                     </div>
+                 </div>
+             </div>
+             <div class="container">
+                 <div class="row">
+                     <div class="col-lg-6 col-md-12">
+                         <div class="card">
+
+
+
+                         </div>
+                     </div>
+                     <div class="col-lg-6 col-md-12">
+
+
+
+                         </div>
+
+
+
+                     {% for evenement in evenements %}
+
+
+
+
+
+                         <div class="blogitem mb-5">
+                             <div class="blogitem-image">
+                                 <a href="blog-details.html"><img src="{{ asset('uploads/images/' ~ evenement.path) }}" alt="blog image"></a>
+                                 <span class="blogitem-date">{{ evenement.dateDebut|date('d-m-Y') }}</span>
+
+                             </div>date Fin      :   <span class="blogitem-date">{{ evenement.dateFin|date('d-m-Y') }}</span>
+                             <div class="blogitem-content">
+                                 <div class="blogitem-header">
+                                     <div class="blogitem-meta">
+                                         <span><i class="zmdi zmdi-account"></i>By <a href="javascript:void(0);">{{ evenement.pseudoAdmin }}</a></span>
+                                         <span><i class="zmdi zmdi-star"></i><a href="blog-details.html">{{ evenement.type }}</a></span>
+                                     </div>
+                                     <span>lieu : {{ evenement.lieu }}</span><br>
+                                     <div class="blogitem-share">
+                                         <ul class="list-unstyled mb-0">
+
+                                         </ul>
+
+                                     </div>
+                                 </div>
+                                 <h5><a href="blog-details.html">{{ evenement.nomEvenement }}</a></h5>
+
+                                MAX :  <span>{{ evenement.max }}</span><br>
+                                 <a href="{{ path('evenement_useraff', { 'id': evenement.idEvenement }) }}" type="submit" class="btn btn-info">Learn more</a>
+                             </div>
+                         </div>
+
+
+
+
+
+
+
+
+                     {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+
+
+
+         <script
+                 src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                 integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+                 crossorigin="anonymous"></script>
+         {# Call NotificationsBundles's assets #}
+         {{ notifications_assets() }}
+         <script>
+
+
+
+             function onNotificationsPushed(data){
+                 console.log('data'. data);
+                 data.forEach(function(item){
+                     let li =' <li> ' +
+                         ''+item.title+'<br> ' +
+                         ''+item.description+'' +
+                         '</li>';
+                     $('#notifications').append(li);
+                 });
+             }
+         </script>
+
+
+     </section>
+
+
+
+
+
+
+ {% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>Avis services</h1>
+
+    <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+        <thead>
+            <tr>
+
+                <th>Nomavis</th>
+                <th>Nomclient</th>
+                <th>Nomservice</th>
+                <th>Commentaire</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for avisService in avisServices %}
+            <tr>
+                <td>{{ avisService.nomAvis }}</td>
+                <td>{{ avisService.nomClient }}</td>
+                <td>{{ avisService.nomService }}</td>
+                <td>{{ avisService.commentaire }}</td>
+                <td>{{ avisService.rating }}</td>
+                <td>
+
+                    <ul>
+
+                            <a class="btn btn-primary"
+                               href="{{ path('avisservice_show', { 'idAvis': avisService.idAvis }) }}">
+                                <i class="zmdi zmdi-hc-fw"></i>
+                            </a>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+
+    </ul>
+{% endblock %}

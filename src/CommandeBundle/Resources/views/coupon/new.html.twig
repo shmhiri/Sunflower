@@ -1,0 +1,21 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1 class="Header 1" ><font color="#8a2be2">Ajouter un Coupons</font> </h1>
+
+
+<form class="row comment-form mt-2" method="post">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Code" name="code" id="code" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Remise (entre 0.1=10% => 0.9=90%)" name="remise" id="remise" required="required">
+        </div>
+        <button type="submit" class="btn btn btn-primary" id="valider" name="valider" >Ajouter Coupon</button>
+
+    </div>
+
+
+</form>
+{% endblock %}

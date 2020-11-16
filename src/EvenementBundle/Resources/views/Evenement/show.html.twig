@@ -1,0 +1,105 @@
+
+{% extends 'baseback.html.twig' %}
+{% block content %}
+
+
+    <section class="content">
+
+
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Basic</strong> Examples </h2>
+                            <ul class="header-dropdown">
+                                <li class="dropdown"> <a href="{{ asset('javascript:void(0);') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Action</a></li>
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Another action</a></li>
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Something else</a></li>
+                                    </ul>
+                                </li>
+                                <li class="remove">
+                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                           <center> <h1 style="color:blue;">Evenement</h1></center>
+
+
+
+
+                                    <center>    <td><img src="{{ asset('uploads/images/' ~ evenement.path) }}" width="200" height="200"></td></center>
+
+                            <center>   <table >
+                                <tbody>
+                                <tr>
+                                    <th>Nomevenement</th>
+                                    <td>{{ evenement.nomEvenement }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Pseudoadmin</th>
+                                    <td>{{ evenement.pseudoAdmin }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Type</th>
+                                    <td>{{ evenement.type }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lieu</th>
+                                    <td>{{ evenement.lieu }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Datedebut</th>
+                                    <td>{{ evenement.dateDebut|date('d-m-Y') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Datefin</th>
+                                    <td>{{ evenement.dateFin|date('d-m-Y') }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description</th>
+                                    <td>{{ evenement.description }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Max</th>
+                                    <td>{{ evenement.max }}</td>
+                                </tr>
+                                </tbody>
+                            </table></center>
+
+                            <ul>
+
+
+                                    {{ form_start(delete_form) }}
+                                    <input type="submit" class="btn btn-primary btn-block waves-effect waves-light" value="Delete">
+                                    {{ form_end(delete_form) }}
+
+                                <li>
+                                    <a href="{{ path('evenement_index') }}">Back to the list</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('evenement_edit', { 'idEvenement': evenement.idEvenement }) }}">Edit</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exportable Table -->
+
+        </div>
+
+        </div>
+    </section>
+
+
+
+{% endblock %}
+
+

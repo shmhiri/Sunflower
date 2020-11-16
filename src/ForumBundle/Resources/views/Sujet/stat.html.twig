@@ -1,0 +1,102 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+
+    <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card widget_2 big_icon email">
+            <div class="body">
+                <h6 >Type :</h6>
+                <h6 class="text-danger">Entretien</h6>
+                <h2>{{ nbrtotalEntretien }}<small class="info"> de <strong class="text-danger">{{ nbrtotalSujet }}</strong> sujets sur notre site</small></h2>
+                <small></small>
+                <div class="progress">
+                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="{{ nbrtotalEntretien }}" aria-valuemin="0" aria-valuemax="{{ nbrtotalSujet }}" style="width: {{ nbrtotalEntretien }}%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card widget_2 big_icon email">
+            <div class="body">
+                <h6>Type : </h6>
+                <h6 class="text-danger">Plantation</h6>
+                <h2>{{ nbrtotalPlantation }}<small class="info"> de <strong class="text-danger">{{ nbrtotalSujet }}</strong> sujets sur notre site</small></h2>
+                <small></small>
+                <div class="progress">
+                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="{{ nbrtotalPlantation }}" aria-valuemin="0" aria-valuemax="{{ nbrtotalSujet }}" style="width: {{ nbrtotalPlantation }}%;"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+        <div class="card widget_2 big_icon email">
+            <div class="body">
+                <h6>Type : </h6>
+                <h6 class="text-danger">Conseils</h6>
+                <h2>{{ nbrtotalConseils }}<small class="info"> de <strong class="text-danger">{{ nbrtotalSujet }}</strong> sujets sur notre site</small></h2>
+                <small></small>
+                <div class="progress">
+                    <div class="progress-bar l-purple" role="progressbar" aria-valuenow="{{ nbrtotalConseils }}" aria-valuemin="0" aria-valuemax="{{ nbrtotalSujet }}" style="width: {{ nbrtotalConseils }}%;"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card widget_2 big_icon domains">
+                <div class="body">
+                    <h6>Nbr de vue </h6>
+                    <h2> <strong class="text-danger">{{ nbrtotalVueSujet }}  </strong>Vues <small class="info">de {{ nbrtotalSujet }} sujets sur notre site  </small></h2>
+                    {#  <small>Total Registered Domain</small>
+                    <div class="progress">
+                         <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                     </div>#}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card widget_2 big_icon domains">
+                <div class="body">
+                    <h6>Notre site:</h6>
+                    <h6 class="text-danger">Meilleur sujet</h6>
+                    {% for s in nomSujetMaxnbrVue %}
+                        <h2>{{ s.nomSujet }}<small class="info">vu<strong class="text-danger">{{ s.nbrVue }}</strong>fois</small></h2>
+                    <small></small>
+                    {% endfor %}
+                    <div class="progress">
+                        <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="card widget_2 big_icon domains">
+                <div class="body">
+                    <h6>Notre site:</h6>
+                    <h6 class="text-danger">Moins vu </h6>
+                    {% for s in nomSujetMinnbrVue %}
+                        <h2>{{ s.nomSujet }}<small class="info">vu<strong class="text-danger">{{ s.nbrVue }}</strong>fois</small></h2>
+                        <small></small>
+                    {% endfor %}
+                    <div class="progress">
+                        <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="div_piechart"></div>
+    <div id="div_histogram"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        {{ gc_draw([piechart], ['div_piechart']) }}
+    </script>
+{% endblock %}
+

@@ -1,0 +1,50 @@
+forum_sujet:
+    resource: "@ForumBundle/Resources/config/routing/sujet.yml"
+    prefix:   /sujet
+##########################baseback###########################
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Default:index }
+##########################basefront###########################
+forum_frontpage:
+    path:     /front
+    defaults: { _controller: ForumBundle:Default:indexf}
+    methods:  GET
+##########################basefront Sujet###########################
+
+forum_list:
+    path:     /forumlist
+    defaults: { _controller: "ForumBundle:Sujet:indexforumlist" }
+    methods:  GET
+
+forum_list_filter:
+    path:     /forumlist/{idCategorieSujet}
+    defaults: { _controller: "ForumBundle:Sujet:indexforumliste" }
+    methods:  GET
+
+forum_list_tri:
+    path:     /forumlisttri
+    defaults: { _controller: "ForumBundle:Sujet:afficherTriFront" }
+    methods:  GET
+
+############################ ROUTING COMMENTAIRE ####################################
+############################################################################
+
+forum_detail:
+    path:     /forumdetail/{idSujet}
+    defaults: { _controller: "ForumBundle:Sujet:indexforumdetail"}
+
+forum_detail_comment:
+    path:     /forumdetails/{idSujet}
+    defaults: { _controller: "ForumBundle:Commentaire:AjouterCommentaire"}
+
+forum_detail_comment_modif:
+    path:     /forumdetails/modif/{idCom}
+    defaults: { _controller: "ForumBundle:Commentaire:ModifierCommentaire"}
+
+
+
+
+
+
+

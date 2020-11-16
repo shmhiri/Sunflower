@@ -1,0 +1,46 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>Ajouter produit</h1>
+    {{ form_start(form) }}
+    <form name="produitbundle_produit" method="post" >
+
+        <div class="form-group"><input type="text" id="nomProduit" required="required" name="nomProduit" maxlength="255" class="form-control" placeholder="Nom produit..."></div>
+        <div class="form-group"><select id="idCategorie" name="idCategorie" required="required" class="form-control"><option value="1">Arbres et Arbustes</option><option value="2">Plantes de decoration</option><option value="3">Plantes fruitiers</option><option value="4">Equipements de decoration</option>                <option value="5">Equipements darrosage</option><option value="6">Outils de jardinage</option> <option value="9">Engrais organiques</option><option value="10">Engrais mineraux</option>  </select></div>
+        <div class="form-group"><input type="number" id="quantite" name="quantite" class="form-control" required="required"   placeholder="Quantité..."></div>
+        <div class="form-group"><input type="number" id="prix" name="prix" class="form-control" required="required" placeholder="Prix..."></div>
+        <div class="form-group"><label>Image</label>{{ form_widget(form.image,{'attr':{}}) }}</div>
+        <div class="form-group"><div><textarea id="description" name="descr" required="required" class="form-control" placeholder="Description..."></textarea></div></div>
+        <div class="form-group">
+            <ul class="row">
+                <button id="ajouter" class="btn btn-app btn-primary fa fa-plus btn-lg" data-type="success" name="ajout" type="submit">Ajouter</button>
+                <div class="blog-column"><a class="btn btn-app btn-primary fa fa-backward btn-lg" href="{{ path('produit_index' ) }}">Retour</a></div>
+            </ul>
+        </div>
+    </form>
+    {{ form_end(form) }}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/search.js" type="text/javascript"></script>
+    <script>
+        $("#nomProduit").keyup(function(){
+            if($(this).val().length <1){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("ajouter").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("ajouter").disabled = false;}});
+    </script>
+    <script>
+        $("#quantite").keyup(function(){
+            if($(this).val() <0){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("ajouter").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("ajouter").disabled = false;}});
+    </script>
+    <script>
+        $("#prix").keyup(function(){
+            if($(this).val()<1){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("ajouter").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("ajouter").disabled = false;}});
+    </script>
+    <script>
+        $("#description").keyup(function(){
+            if($(this).val().length <1){$(this).css({borderColor : 'red',color : 'red'});document.getElementById("ajouter").disabled = true;}
+            else{$(this).css({borderColor : 'green',color : 'grey',});document.getElementById("ajouter").disabled = false;}});
+    </script>
+
+{% endblock %}

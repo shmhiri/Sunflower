@@ -1,0 +1,49 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1 class="Header 1" ><font color="#8a2be2">List des Coupons</font> </h1>
+    <div class="col-lg-12">
+        <div class="card">
+
+            <div class="body">
+                <div class="table-responsive">
+
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                    <thead>
+                                    <tr role="row">
+                                        <th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 139px;">Code</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 227px;">Remise</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 99px;">Utiliser</th>
+                                        <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 99px;">Action</th>
+
+                                    </thead>
+
+                                    <tbody>
+
+                                    {% for coupon in coupons %}
+                                    <tr role="row" class="odd">
+                                        <td class="sorting_1">{{ coupon.code }}</td>
+                                        <td>{{ coupon.remise *100 }}%</td>
+                                        <td>{{ coupon.used *100 }}%</td>
+                                        <td>
+                                            <a  class="btn btn-primary" href="{{ path('coupon_show', { 'id': coupon.id }) }}">Afficher en détaille</a>
+                                        </td>
+
+                                    </tr>
+                                    {% endfor %}
+
+                                       </tbody>
+
+                                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <ul>
+
+            <a class="btn btn-success" href="{{ path('coupon_new') }}">Ajouter un nouveau coupon</a>
+
+    </ul>
+{% endblock %}

@@ -1,0 +1,38 @@
+
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>Details du produit</h1>
+    {% set imag = 'uploads/images/'~produit.image %}
+    <div class="body">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-12">
+                <img class="img-fluid seat" src="{{ asset(imag)}}" rel="siège non réservé" />
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-12">
+                <div class="product details">
+                    <h3 class="product-title mb-0"> {{ produit.nomProduit }}</h3>
+                    <h5 class="price mt-0">Prix: <span class="col-amber">  {{ produit.prix }} DT </span></h5>
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star-outline"></span>
+                            <hr>
+                        </div> <p class="product-description">{{  produit.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+<br>
+        <ul>
+            <a class="btn btn-app btn-primary fa fa-edit btn-lg" href="{{ path('produit_edit', { 'idProduit': produit.idProduit}) }}">Modifier</a>
+            <a class="btn btn-app btn-primary fa fa-trash btn-lg" href="{{ path('produit_delete', { 'idProduit': produit.idProduit}) }}">Supprimer</a>
+            <a class="btn btn-app btn-primary fa fa-backward btn-lg" href="{{ path('produit_index' ) }}">Retour à la liste</a>
+
+        </ul>
+    </div>
+{% endblock %}
+

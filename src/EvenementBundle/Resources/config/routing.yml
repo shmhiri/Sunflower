@@ -1,0 +1,33 @@
+Evenement_Dashboard:
+    path:     /admin/
+    defaults: { _controller: EvenementBundle:Evenement:stat }
+Evenement_Dashboard2:
+    path:     /admin/Dashboard
+    defaults: { _controller: EvenementBundle:Evenement:stat }
+evenement_index:
+    path:     /admin/Afficher_eve
+    defaults: { _controller: EvenementBundle:Evenement:index }
+evenement_new:
+    path:     /admin/Ajouter_eve
+    defaults: { _controller: EvenementBundle:Evenement:new }
+evenement_show:
+    path:     /admin/Affichage_eve/{idEvenement}
+    defaults: { _controller: EvenementBundle:Evenement:show }
+evenement_edit:
+    path:     /admin/Modifier_eve/{idEvenement}
+    defaults: { _controller: EvenementBundle:Evenement:edit }
+evenement_delete:
+    path:     /admin/Supprimer_eve/{idEvenement}
+    defaults: { _controller: EvenementBundle:Evenement:delete }
+evenement_user:
+    path:     /user
+    defaults: { _controller: EvenementBundle:Evenement:user }
+evenement_useraff:
+    path:     /useraff/{id}
+    defaults: { _controller: EvenementBundle:Evenement:useraff }
+evenement_userr:
+    path:     /user/{id}
+    defaults: { _controller: EvenementBundle:Evenement:userr }
+evenement_showpar:
+    path:     /admin/Affichage_par/{idEvenement}
+    defaults: { _controller: EvenementBundle:Evenement:showpar }

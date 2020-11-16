@@ -1,0 +1,51 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1>ajouter un service</h1>
+        <section class="content">
+    {{ form_start(form) }}
+<div class="form-group">
+    <label>Nom service</label>
+    {{ form_widget(form.nomService,{'attr':{'class':'form-control','placeholder':'nom service...'}}) }}
+</div>
+
+    <div class="form-group">
+        <label>prix</label>
+        {{ form_widget(form.prix,{'attr':{'class':'form-control','placeholder':'prix...'}}) }}
+    </div>
+    <div class="form-group">
+        <label>Type</label>
+        {{ form_widget(form.type,{'attr':{'class':'form-control'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        {{ form_widget(form.description,{'attr':{'class':'form-control','placeholder':'description...'}}) }}
+    </div>
+    <div class="form-group">
+        <label>etat</label>
+        {{ form_widget(form.etat,{'attr':{'class':'form-control','placeholder':'etat...'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>region</label>
+        {{ form_widget(form.region,{'attr':{'class':'form-control','placeholder':'region...'}}) }}
+    </div>
+
+    <div class="form-group">
+        <label>Image</label>
+        {{ form_widget(form.image,{'attr':{}}) }}
+    </div>
+            <table>
+
+    <div class="row clearfix js-sweetalert">
+        <button class="btn btn-raised btn-primary waves-effect" data-type="success" name="ajout" type="submit">Ajouter</button>
+    </div>
+
+
+            <a class="btn btn-app" href="{{ path('service_index') }}">
+                <i class="fa fa-repeat"></i> Back to the list</a>
+        {{ form_end(form) }}
+                </table>
+</section>
+{% endblock %}

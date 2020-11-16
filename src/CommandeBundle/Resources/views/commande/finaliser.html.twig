@@ -1,0 +1,265 @@
+{% extends 'basef.html.twig' %}
+
+
+{% block titre %}  <title>SunFlower Finaliser CMD</title>{% endblock %}
+{% block content %}
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade post-area blog-area pt-110 pb-95 blog-column" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content" style="width: 600px;border-radius:20px" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modification de l'adresse</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table c_table theme-color">
+
+                        <tr>
+                            <th>Nom et Prenom:</th>
+                            <td>{{ user.nom }} {{ user.prenom }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adresse:</th>
+                            <td>
+                                <form class="row comment-form mt-2" method="post" >
+
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <textarea rows="4" class="form-control no-resize" name="adresse" id="adresse" required="required">{{ user.adresse }}</textarea>
+
+                                        </div>
+
+                                    </div>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Telephone:</th>
+                            <td> <input type="number" class="form-control no-resize" name="sexe" id="sexe" value="{{ user.sexe }}" required="required"></td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Quitter</button>
+                    <button type="submit" class="btn btn btn-primary" id="valider" name="valider" >Confirmer l'adresse</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="theme-blush">
+    <div class="post-area blog-area pt-110 pb-95 blog-column">
+        <section class="content blog-page">
+            <div class="body_scroll">
+                <div class="container-fluid">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6 text-right">
+                                <td><button type="button" class="btn btn-info btn-lg" name="delete"  data-toggle="modal" data-target="#myModal">Modifier</button>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6 col-sm-6">
+                            <font size="5"> <b>1. Adresse</b></font><br>
+
+                            <b>{{ user.prenom }} {{ user.nom }}</b><br>
+                            {{ user.adresse }}<br>
+                            (+216) {{ user.sexe }}<br>
+                            {{ user.email }}<br>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+
+
+
+                <div class="table-responsive">
+                    {%  set i=1 %}
+                    <font size="5"> <b>2. Panier</b></font><br>
+                    <table class="table c_table theme-color">
+
+                        <tr> <td></td>
+                            <td>#</td>
+                            <td >Item</td>
+                            <td></td>
+                            <td>Description</td>
+                            <td>Quantity</td>
+                            <td>Prix unitaire</td>
+                            <td>Total</td>
+                        </tr>
+
+
+                        <tbody>
+
+                        {% for lcmd in lcmd %}
+                            <tr> <td></td>
+                                <td> {{  i }} </td>
+                                {% set imag = 'uploads/images/'~lcmd.image %}
+                                <td><img src="{{ asset(imag ) }}" width="40" alt="Product img"></td>
+                                <td>{{ lcmd.nomProduit }}</td>
+                                <td class="hidden-sm-down">
+                                    {{ lcmd.description }}
+                                </td>
+                                <td>{{ lcmd.quantite }}</td>
+
+                                <td class="hidden-sm-down"> {{ lcmd.prix }}DT</td>
+                                <td>{{ lcmd.prix * lcmd.quantite }} DT</td>
+
+
+                            </tr>
+                            {%  set i=i+1 %}
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+            <font size="5"><b>3. MODE DE PAIEMENT</b></font><br>
+            <table class="table c_table theme-color">
+
+                <tr><td></td><td></td>
+                    <td>
+                        <font size="4">Quel moyen de paiement voulez-vous utiliser?</font>
+                        <br>
+                        <input type="radio" color="yellow" checked="checked"> <img src="{{ asset('uploads/images/pay.png' ) }}" ><b> Paiement à la livraison</b>
+                    </td></tr>
+                <tr><td></td>
+                    <td></td>
+                    <td>
+                        Payez votre commande cash à la livraison!<br><br>
+                        <b>Important:</b><br>
+                        <li> Assurez-vous de préparer le montant exact de la commande. <br>Les livreurs ne disposent pas toujours d'espèces pour vous rendre la monnaie.</li><br>
+                        <li> Nous acceptons uniquement le payement en Dinar Tunisien.</li><br>
+                        <li> Le paiement par carte bancaire, chèques ne sont pas acceptés.</li><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td><td></td>
+                    <td><b>Vous avez un bon d'achat ?</b></td>
+                </tr>
+                <tr>
+                    <td></td><td></td>
+                    <td>
+                        <form class="row comment-form mt-2" id="coupon" method="post" action="{{ path('commande_coupon')}}">
+                            <input type="text" name="coupon" id="coupon" placeholder="Entrez ici votre coupon de réduction" size="80"/>
+
+                            <button  type="submit" id="valide" name="valide" class="btn btn-app btn-primary waves-effect" href="{{ path('commande_coupon')}}">Ajouter votre coupon</button>
+                        </form>
+
+                    </td>
+                </tr>
+            </table>
+            <br>
+
+
+            <div class="body">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <b> Remise: </b><br>
+                        {{ remise *100}} %<br>
+                        <b> Totale:</b>
+
+                        {% set x="false" %}
+                        <h3 class="mb-0 text-success">{{ tot|number_format(3, '.') }} DT</h3>
+
+                        {%  if (user.adresse)!="" and (user.sexe)!="" %}
+
+                            <a class="btn btn-app btn-primary waves-effect"  id="conf" name="conf" href="{{ path('commande_new')}}">confirmer votre commande</a>
+
+                        {% endif %}
+
+
+
+                    </div>
+                    <font size="5"> <b>Verifier votre adresse et votre Numéro de telephone</b></font><br>
+                </div>
+            </div>
+    </div>
+    </section>
+    </body>
+
+    <br>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/search.js" type="text/javascript"></script>
+    <script>
+
+        $("#sexe").keyup(function(){
+
+            if(($(this).val().length == 8)&&(isNaN($(this).val())==false)){
+                $(this).css({
+                    borderColor : 'green',
+                    color : 'green',
+                    hintPopover: 'valid',
+
+                });
+                document.getElementById("valider").disabled = false;
+
+            }
+            else{
+                $(this).css({
+                    borderColor : 'red',
+                    color : 'red',
+                    hintPopover: 'invalid',
+                });
+                document.getElementById("valider").disabled = true;
+
+
+            }
+        });
+
+
+        $("#adresse").keyup(function(){
+            if($(this).val().length < 10){
+                $(this).css({
+                    borderColor : 'red',
+                    color : 'red',
+                    hintPopover: 'valid',
+
+                });
+                document.getElementById("valider").disabled = true;
+            }
+            else{
+                $(this).css({
+                    borderColor : 'green',
+                    color : 'grey'
+                });
+                document.getElementById("valider").disabled = false;
+            }
+        });
+
+    </script>
+
+{% endblock %}

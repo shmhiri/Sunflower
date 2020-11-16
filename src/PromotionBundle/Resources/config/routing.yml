@@ -1,0 +1,21 @@
+promotion_index:
+    path:     /admin/Afficher_pro
+    defaults: { _controller: PromotionBundle:Promotion:index }
+promotion_new:
+    path:     /admin/Ajouter_pro
+    defaults: { _controller: PromotionBundle:Promotion:new }
+promotion_show:
+    path:     /admin/Affichage_pro/{idPromotion}
+    defaults: { _controller: PromotionBundle:Promotion:show }
+promotion_edit:
+    path:     /admin/Modifier_pro/{idPromotion}
+    defaults: { _controller: PromotionBundle:Promotion:edit }
+promotion_delete:
+    path:     /admin/Supprimer_pro/{idPromotion}
+    defaults: { _controller: PromotionBundle:Promotion:delete }
+promotion_user:
+    path:     /user_pro
+    defaults: { _controller: PromotionBundle:Promotion:user }
+promotion_user_show:
+    path:     /user_pro_show/{id}
+    defaults: { _controller: PromotionBundle:Promotion:usershow }

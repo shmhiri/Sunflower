@@ -1,0 +1,7 @@
+avisservice_avisservice:
+    resource: "@AvisserviceBundle/Resources/config/routing/avisservice.yml"
+    prefix:   /avisservice
+
+avisservice_homepage:
+    path:     /
+    defaults: { _controller: AvisserviceBundle:Default:index }

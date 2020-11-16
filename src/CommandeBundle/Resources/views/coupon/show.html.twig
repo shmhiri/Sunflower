@@ -1,0 +1,30 @@
+{% extends 'baseback.html.twig' %}
+
+{% block content %}
+    <h1 class="Header 1" ><font color="#8a2be2">Coupon</font> </h1>
+
+    <table>
+        <tbody>
+
+            <tr>
+                <th><b>Code Promotion: </b></th>
+                <td>{{ coupon.code }}</td>
+            </tr>
+            <tr>
+                <th><b>Remise: </b></th>
+                <td>{{ coupon.remise*100 }} %</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+    <ul>
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-danger" >
+        {{ form_end(delete_form) }}
+
+            <a class="btn btn-success" href="{{ path('coupon_index') }}">Back to the list</a>
+
+
+
+    </ul>
+{% endblock %}

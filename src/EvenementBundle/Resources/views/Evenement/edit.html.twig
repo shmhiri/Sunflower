@@ -1,0 +1,118 @@
+
+{% extends 'baseback.html.twig' %}
+{% block content %}
+
+
+    <section class="content">
+
+
+        <div class="container-fluid">
+            <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Basic</strong> Examples </h2>
+                            <ul class="header-dropdown">
+                                <li class="dropdown"> <a href="{{ asset('javascript:void(0);') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
+                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Action</a></li>
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Another action</a></li>
+                                        <li><a href="{{ asset('javascript:void(0);') }}">Something else</a></li>
+                                    </ul>
+                                </li>
+                                <li class="remove">
+                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+
+                            <center>  <h1 style="color:blue;">Evenement edit</h1></center>
+                            <center> <img src="{{ asset('uploads/images/' ~ evenement.path) }}" width="200" height="200"></center>
+
+                            <div  style="display: flex;justify-content: center">
+
+                                {{ form_start(edit_form) }}
+
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.nomEvenement, { 'attr': {'class': 'form-control','placeholder':'nomEvenement'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-label-heart"></i></span>
+                                </div>
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.pseudoAdmin, { 'attr': {'class': 'form-control','placeholder':'pseudoAdmin'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-account"></i></span>
+                                </div>
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.type, { 'attr': {'class': 'form-control','placeholder':'type'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-star"></i></span>
+                                </div>
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.lieu, { 'attr': {'class': 'form-control','placeholder':'lieu'} }) }}
+
+                                    <span class="input-group-text"><i class="zmdi zmdi-home"></i></span>
+                                </div>
+                                <h7>Date Début</h7>
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.dateDebut, { 'attr': {'class': 'form-control','placeholder':'dateDebut'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-account-calendar"></i></span>
+                                </div>
+                                <h7>Date Fin</h7>
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.dateFin, { 'attr': {'class': 'form-control','placeholder':'dateFin'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-account-calendar"></i></span>
+                                </div>
+
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.path, { 'attr': {'class': 'form-control','placeholder':'path'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-image-alt"></i></span>
+                                </div>
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.max, { 'attr': {'class': 'form-control','placeholder':'max'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-window-maximize"></i></span>
+                                </div>
+
+                                <div class="input-group-append">
+                                    {{ form_widget(edit_form.description, { 'attr': {'class': 'form-control','placeholder':'description'} }) }}
+                                    <span class="input-group-text"><i class="zmdi zmdi-comment-text"></i></span>
+                                </div>
+
+
+
+                                <input type="submit" class="btn btn-primary btn-block waves-effect waves-light" value="Edit" />
+                                {{ form_end(edit_form) }}
+
+                            </div>
+
+                            <ul>
+
+
+                                    {{ form_start(delete_form) }}
+                                    <input type="submit" class="btn btn-primary btn-block waves-effect waves-light" value="Delete" />
+                                    {{ form_end(delete_form) }}
+                                <li>
+                                    <a href="{{ path('evenement_index') }}">Back to the list</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exportable Table -->
+
+        </div>
+
+        </div>
+    </section>
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,29 @@
+coupon_index:
+    path:     /
+    defaults: { _controller: "CommandeBundle:Coupon:index" }
+    methods:  GET
+
+coupon_show:
+    path:     /{id}/show
+    defaults: { _controller: "CommandeBundle:Coupon:show" }
+    methods:  GET
+
+coupon_new:
+    path:     /new
+    defaults: { _controller: "CommandeBundle:Coupon:new" }
+    methods:  [GET, POST]
+
+coupon_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CommandeBundle:Coupon:edit" }
+    methods:  [GET, POST]
+
+coupon_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CommandeBundle:Coupon:delete" }
+    methods:  DELETE
+
+commande_stat:
+    path:     /statistic
+    defaults: { _controller: "CommandeBundle:Coupon:statback" }
+    methods:  GET

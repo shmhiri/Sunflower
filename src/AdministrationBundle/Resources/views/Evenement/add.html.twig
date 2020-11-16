@@ -1,0 +1,67 @@
+{% extends 'baseback.html.twig' %}
+
+{% block breadcrumbTitle %}Ajout d'un événement{% endblock %}
+
+{% block content %}
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    <strong>Nouvel</strong>
+                    Evenement
+                </h2>
+            </div>
+
+            <div class="body">
+                <form action="{{ path('evenement_add') }}" method="post">
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nom" name="nom" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+
+                                <select class="form-control show-tick" name="type">
+                                    <option value="">Select type</option>
+                                    <option value="competition">Competition</option>
+                                    <option value="visite">Visite</option>
+                                    <option value="animation">Animation</option>
+                                </select></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Lieu" name="lieu" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div class="form-line">
+                            <textarea rows="4" class="form-control no-resize"
+                                      placeholder="Description" required name="description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-md-offset-3"></div>
+                    <button class="btn btn-primary btn-block" type="submit">Ajouter</button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

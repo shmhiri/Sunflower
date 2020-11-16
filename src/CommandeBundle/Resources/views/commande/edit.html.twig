@@ -1,0 +1,64 @@
+{% extends 'baseback.html.twig' %}
+{% block titre %}  <title>SunFlower modifier Cmd</title>{% endblock %}
+{% block content %}
+    <h1>Modification de l'etat de la commande</h1>
+    {{ form_start(edit_form) }}
+<table>
+    <tbody>
+    <tr>
+        <th> Commande n°  </th>
+        <td>{{ commande.idCmd }}</td>
+    </tr>
+    </tbody>
+</table>
+    <div class="form-group">
+        <label>Etat de la commande:</label>
+        {{ form_widget(edit_form.etatCmd,{'attr':{'class':'form-control',}}) }}
+
+    </div>
+    <table>
+        <tbody>
+    <tr>
+        <th>Date de la commande:</th>
+        <td>{% if commande.dateCmd %}{{ commande.dateCmd|date('Y-m-d H:i:s') }}{% endif %}</td>
+    </tr>
+    <tr>
+        <th>Mode de paiement:</th>
+        <td>{{ commande.modeP }}</td>
+    </tr>
+    <tr>
+        <th>Lieu de Livraison:</th>
+        <td>{{ commande.lieuLiv }}</td>
+    </tr>
+
+    <tr>
+        <th>Montant:</th>
+        <td>{{ commande.montant }} DT</td>
+    </tr>
+        </tbody>
+    </table>
+
+
+    <table>
+    <tbody>
+    {{ form_start(edit_form) }}
+    </tr>
+    <td> <input class="btn btn-app btn-primary waves-effect" type="submit" value="Modifier" /></td>
+    {{ form_end(edit_form) }}
+
+
+
+            {{ form_start(delete_form) }}
+            <td> <input class="btn btn-app" type="submit" value="Supprimer"></td>
+            {{ form_end(delete_form) }}
+
+
+    </tr>
+    </tbody>
+    </table>
+    {{ form_end(edit_form) }}
+<script>
+
+
+</script>
+{% endblock %}

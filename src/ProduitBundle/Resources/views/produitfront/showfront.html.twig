@@ -1,0 +1,76 @@
+{% extends 'basef.html.twig' %}
+
+{% block content %}
+    <br><br><br><br>
+
+    {% set imag = 'uploads/images/'~produit.image %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="body">
+            <div class="row">
+
+
+
+                <div class="body">
+
+        <div class="row">
+
+            <div class=" col-lg-12 col-xl-5 col-md-12">
+                <div class="card" >
+                    <div class="body product_item">
+                        {% if produit.quantite>0 %}
+                            <span class="badge badge-success">Disponible!</span>
+                        {% else %}
+                            <span  class="badge badge-danger">Indisponible!</span>
+                        {% endif %}
+
+                <img class="img-fluid seat" src="{{ asset(imag)}}" rel="siège non réservé" />
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-8 col-md-12">
+                <br>
+                <div class="product details">
+                    <h2 class="product-title mb-0"> {{ produit.nomProduit }}</h2>
+                    <h4 class="price mt-0">Prix: <span class="col-amber">  {{ produit.prix }} DT </span></h4>
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star col-amber"></span>
+                            <span class="zmdi zmdi-star-outline"></span>
+                        </div>
+                        <h5> <p class="product-description">{{  produit.description}}</p></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="action">
+            <a class="btn btn-app btn-primary btn-lg fa fa-heart " href="{{ path('favoris_new', { 'idProduit': produit.idProduit}) }}">Ajouter au favoris</a>
+            {% if produit.quantite>0 %}
+                <a class="btn btn-app btn-primary fa fa-shopping-cart btn-lg"  href="{{ path('commande_ajouter', { 'idProduit' : produit.idProduit }) }}">Ajouter au panier</a>
+            {% endif %}
+            <a class="btn btn-app btn-primary fa fa-backward btn-lg" href="{{ path('produit_indexfront' ) }}">    Retour à la liste</a>
+
+        </div>
+        </div>
+
+            </div>
+
+        </div>
+    </div>
+    </section>
+    </div>
+    </br></br></br></br>
+
+
+    </div>
+{% endblock %}
+
+
+
+

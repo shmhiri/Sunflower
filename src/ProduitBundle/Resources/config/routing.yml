@@ -1,0 +1,19 @@
+produit_produit:
+    resource: "@ProduitBundle/Resources/config/routing/produit.yml"
+    prefix:   /produit
+
+produit_produitfront:
+    resource: "@ProduitBundle/Resources/config/routing/produitfront.yml"
+    prefix:   /produitfront
+
+produit_favoris:
+    resource: "@ProduitBundle/Resources/config/routing/favoris.yml"
+    prefix:   /favoris
+
+produit_homepage:
+    path:     /
+    defaults: { _controller: ProduitBundle:Default:index }
+
+produit_indexfront:
+    path:     /produitfront
+    defaults: { _controller: ProduitBundle:Produit:indexfront }

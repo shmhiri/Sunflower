@@ -1,0 +1,58 @@
+{% extends 'baseback.html.twig' %}
+{% block breadcrumbTitle %}Liste des événements{% endblock %}
+
+{% block content %}
+    <div class="col-12">
+        <div class="card">
+            <div class="header">
+
+            </div>
+            <div class="body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>NOM</th>
+                            <th>TYPE</th>
+                            <th>LIEU</th>
+                            <th>DESCRIPTION</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for evenement in evenements %}
+                            <tr>
+                                <td>{{ evenement.id }}</td>
+                                <td>{{ evenement.nom }}</td>
+                                <td>{{ evenement.type }}</td>
+                                <td>{{ evenement.lieu }}</td>
+                                <td>{{ evenement.description }}</td>
+
+                                <td>
+
+
+                                   {# <a class="btn btn--secondary"
+                                       href="{{ path('evenement_show_one',{id:evenement.id}) }}">
+                                        <i class="zmdi zmdi-hc-fw"></i>
+                                    </a>#}
+                                    <a class="btn btn-primary"
+                                       href="{{ path('evenement__admin_update',{id:evenement.id}) }}">
+                                        <i class="zmdi zmdi-hc-fw"></i>
+                                    </a>
+
+
+                                    <a class="btn btn-danger" href="{{ path('evenement_admin_delete',{id:evenement.id}) }}">
+                                        <i class="zmdi zmdi-hc-fw"></i>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

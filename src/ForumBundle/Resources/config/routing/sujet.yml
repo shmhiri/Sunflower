@@ -1,0 +1,32 @@
+sujet_index:
+    path:     /
+    defaults: { _controller: "ForumBundle:Sujet:index" }
+    methods:  GET
+
+sujet_show:
+    path:     /{idSujet}/show
+    defaults: { _controller: "ForumBundle:Sujet:show" }
+    methods:  GET
+
+sujet_new:
+    path:     /new
+    defaults: { _controller: "ForumBundle:Sujet:new" }
+    methods:  [GET, POST]
+
+sujet_edit:
+    path:     /{idSujet}/edit
+    defaults: { _controller: "ForumBundle:Sujet:edit" }
+    methods:  [GET, POST]
+
+sujet_delete:
+    path:     /{idSujet}/delete
+    defaults: { _controller: "ForumBundle:Sujet:delete" }
+    methods:  DELETE
+
+stat_back:
+    path:     /statback
+    defaults: { _controller: "ForumBundle:Sujet:statback" }
+
+#blog_list:
+#    path:     /bloglist
+#    defaults: { _controller: "ForumBundle:Sujet:bloglistshow" }

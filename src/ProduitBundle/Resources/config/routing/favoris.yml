@@ -1,0 +1,21 @@
+favoris_index:
+    path:     /
+    defaults: { _controller: "ProduitBundle:Favoris:index" }
+    methods:  GET
+
+
+favoris_new:
+    path:     /new/{idProduit}
+    defaults: { _controller: "ProduitBundle:Favoris:new" }
+    methods:  [GET, POST]
+
+
+favoris_delete:
+    path:     /delete/{idFavoris}
+    defaults: { _controller: "ProduitBundle:Favoris:delete" }
+    methods:  GET
+
+favoris_show:
+    path:     /showfav/{idFavoris}
+    defaults: { _controller: "ProduitBundle:Favoris:show" }
+    methods:  GET
